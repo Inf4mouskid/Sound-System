@@ -6,19 +6,24 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] Sounds;
 
+    public static AudioManager Instance;
+
     // Use this for initialization
     void Awake()
     {
         // Keep the game object Active between scenes
-        DontDestroyOnLoad(gameObject);
+        if (Instance != null) Destroy(gameObject);
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
         foreach (var Audio in Sounds)
         {
             Audio.source = gameObject.AddComponent<AudioSource>();
             Audio.source.clip = Audio.clip;
             Audio.source.outputAudioMixerGroup = Audio.AudioGroup;
-            Audio.source.volume = Audio.volume;
-            Audio.source.loop = Audio.Loop;
         }
     }
 
@@ -27,11 +32,14 @@ public class AudioManager : MonoBehaviour
         // Properties updatable in game
         foreach (var Audio in Sounds)
         {
+            Audio.source.volume = Audio.volume;
             Audio.source.mute = Audio.Mute;
+            Audio.source.loop = Audio.Loop;
             Audio.source.pitch = Audio.pitch;
         }
     }
 
+    #region Public properties
     /// <summary>
     /// Plays an audio file by name. (in other scripts use 'FindObjectOfType')
     /// </summary>
@@ -43,6 +51,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+
     /// <summary>
     /// Mutes a specific piece of audio
     /// </summary>
@@ -52,6 +61,42 @@ public class AudioManager : MonoBehaviour
         if (s == null)
             return;
         s.Mute = !s.Mute;
+    }
+
+    /// <summary>
+    /// Mutes all menu audio.
+    /// </summary>
+    public void MuteMenu()
+    {
+        foreach (var s in Sounds)
+        {
+            if (s.AudioGroup.ToString() == "Menu")
+                s.Mute = !s.Mute;
+        }
+    }
+
+    /// <summary>
+    /// Mutes all background music audio.
+    /// </summary>
+    public void MuteMusic()
+    {
+        foreach (var s in Sounds)
+        {
+            if (s.AudioGroup.ToString() == "Music")
+                s.Mute = !s.Mute;
+        }
+    }
+
+    /// <summary>
+    /// Mutes all background music audio.
+    /// </summary>
+    public void MuteSound()
+    {
+        foreach (var s in Sounds)
+        {
+            if (s.AudioGroup.ToString() == "Sound FX")
+                s.Mute = !s.Mute;
+        }
     }
 
     /// <summary>
@@ -85,3 +130,4 @@ public class AudioManager : MonoBehaviour
         }
     }
 }
+#endregion

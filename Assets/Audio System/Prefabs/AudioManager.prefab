@@ -52,7 +52,7 @@ MonoBehaviour:
     pitch: 1
     spacialBlend: 0
     Mute: 0
-    Loop: 0
+    Loop: 1
     source: {fileID: 0}
   - name: Action Theme
     clip: {fileID: 8300000, guid: 4d68cc416dc02134781c1dae13ad077a, type: 3}
@@ -62,7 +62,7 @@ MonoBehaviour:
     pitch: 1
     spacialBlend: 0
     Mute: 0
-    Loop: 0
+    Loop: 1
     source: {fileID: 0}
   - name: Love Theme
     clip: {fileID: 8300000, guid: 541296a059700a041a55e432757937ac, type: 3}
@@ -72,7 +72,7 @@ MonoBehaviour:
     pitch: 1
     spacialBlend: 0
     Mute: 0
-    Loop: 0
+    Loop: 1
     source: {fileID: 0}
   - name: Horror Theme 1
     clip: {fileID: 8300000, guid: 3092eb3c3603ab542959d81ef9b07d91, type: 3}
@@ -82,10 +82,20 @@ MonoBehaviour:
     pitch: 1
     spacialBlend: 0
     Mute: 0
+    Loop: 1
+    source: {fileID: 0}
+  - name: Button_Positive
+    clip: {fileID: 8300000, guid: 9c5f7a1559aec5945ad56dc97c0a8f34, type: 3}
+    AudioGroup: {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c,
+      type: 2}
+    volume: 1
+    pitch: 1
+    spacialBlend: 0
+    Mute: 0
     Loop: 0
     source: {fileID: 0}
-  - name: Horror Theme 2
-    clip: {fileID: 8300000, guid: 175ece541719a324aa1c7f80d3297cbc, type: 3}
+  - name: Button_Negative
+    clip: {fileID: 8300000, guid: d3c5980fc40c01c4ca3689d9865fd9a1, type: 3}
     AudioGroup: {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c,
       type: 2}
     volume: 1

@@ -10,10 +10,10 @@ public class Sound
     public string name; // Name of the sound
 
     [Tooltip("Audio clip for use in the game")]
-    public AudioClip clip; // Sound file
+    public AudioClip clip; // Sound file to play
 
     [Tooltip("Add and audio mixer channel to control the in-game Volume")]
-    public AudioMixerGroup AudioGroup;
+    public AudioMixerGroup AudioGroup; // Mixer group used to control the volume
 
     [Header("Attributes")]
 
@@ -29,8 +29,8 @@ public class Sound
     [Range(0f, 1f)]
     public float spacialBlend; // Set the spacial area of the audio
 
-    [Tooltip("Set whether or not the audio is muted")]
-    public bool Mute; // Mute the audio
+    [Tooltip("Set whether or not the audio is looping")]
+    public bool Mute; // Sets whether or the audio should loop
 
     [Tooltip("Set whether or not the audio is looping")]
     public bool Loop; // Sets whether or the audio should loop
