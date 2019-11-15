@@ -51,16 +51,12 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-
     /// <summary>
-    /// Mutes a specific piece of audio
+    /// Mutes all the audio in the game
     /// </summary>
-    public void Mute(string Name)
+    public void MuteAll()
     {
-        var s = Array.Find(Sounds, sound => sound.name == Name);
-        if (s == null)
-            return;
-        s.Mute = !s.Mute;
+        foreach (var s in Sounds) s.Mute = !s.Mute;
     }
 
     /// <summary>
@@ -97,14 +93,6 @@ public class AudioManager : MonoBehaviour
             if (s.AudioGroup.ToString() == "Sound FX")
                 s.Mute = !s.Mute;
         }
-    }
-
-    /// <summary>
-    /// Mutes all the audio in the game
-    /// </summary>
-    public void MuteAll()
-    {
-        foreach (var s in Sounds) s.Mute = !s.Mute;
     }
 
     ///<summary>
