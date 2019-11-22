@@ -122,13 +122,13 @@ public class AudioManager : MonoBehaviour
                 Audio.source.Stop();
         }
     }
-
-    public string GetCurrentSong()
-    {
-        foreach (var Audio in Sounds)
+    /* 
+        public string GetCurrentSong()
         {
-            if (Audio.AudioGroup.ToString() == "Music" && Audio.source.isPlaying)
-                return Audio.name;
-        }
-    }
+            foreach (var Audio in Sounds)
+            {
+                if (Audio.AudioGroup.ToString() == "Music" && Audio.source.isPlaying)
+                    return Audio.name;
+            }
+        } */
 }
