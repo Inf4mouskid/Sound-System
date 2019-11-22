@@ -8,6 +8,9 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
+    [HideInInspector]
+    public bool isPlaying;
+
     // Use this for initialization
     void Awake()
     {
@@ -39,7 +42,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    #region Public properties
     /// <summary>
     /// Plays an audio file by name. (in other scripts use 'FindObjectOfType')
     /// </summary>
@@ -51,6 +53,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    #region Mute Audio
     /// <summary>
     /// Mutes all the audio in the game
     /// </summary>
@@ -94,6 +97,7 @@ public class AudioManager : MonoBehaviour
                 s.Mute = !s.Mute;
         }
     }
+    #endregion
 
     ///<summary>
     /// Stops the selected audio from playing
@@ -113,9 +117,18 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.source.isPlaying)
+            isPlaying = Audio.source.isPlaying;
+            if (isPlaying)
                 Audio.source.Stop();
         }
     }
+
+    public string GetCurrentSong()
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup.ToString() == "Music" && Audio.source.isPlaying)
+                return Audio.name;
+        }
+    }
 }
-#endregion
