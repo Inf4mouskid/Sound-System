@@ -1,19 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MusicPlayer : MonoBehaviour
 {
+    AudioManager Manager = FindObjectOfType<AudioManager>();
+
     void Start()
     {
-        if (FindObjectOfType<AudioManager>().isPlaying)
+        if (Manager.isPlaying)
         {
-            foreach (var s in FindObjectOfType<AudioManager>().Sounds)
+            foreach (var Audio in Manager.Sounds)
             {
-                if (s.AudioGroup.ToString() == "Music")
-                    FindObjectOfType<AudioManager>().Stop("");
+                if (Audio.AudioGroup.ToString() == "Music")
+                    Manager.Stop("");
             }
         }
-        FindObjectOfType<AudioManager>().Play("");
+        Manager.Play("");
+    }
+
+    void transition()
+    {
     }
 }

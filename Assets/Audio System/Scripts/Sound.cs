@@ -4,6 +4,8 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class Sound
 {
+    public enum AudioType { Menu, Music, World }
+
     [Header("Data")]
 
     [Tooltip("Name of the sound for referrence")]
@@ -13,7 +15,7 @@ public class Sound
     public AudioClip clip; // Sound file to play
 
     [Tooltip("Add and audio mixer channel to control the in-game Volume")]
-    public AudioMixerGroup AudioGroup; // Mixer group used to control the volume
+    public AudioType AudioGroup; // Mixer group used to control the volume
 
     [Header("Attributes")]
 

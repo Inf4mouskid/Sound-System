@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixerGroup[] AudioGroups;
     public Sound[] Sounds;
 
     public static AudioManager Instance;
@@ -26,7 +27,12 @@ public class AudioManager : MonoBehaviour
         {
             Audio.source = gameObject.AddComponent<AudioSource>();
             Audio.source.clip = Audio.clip;
-            Audio.source.outputAudioMixerGroup = Audio.AudioGroup;
+            if (Audio.AudioGroup == Sound.AudioType.Menu)
+                Audio.source.outputAudioMixerGroup = AudioGroups[0];
+            else if (Audio.AudioGroup == Sound.AudioType.Music)
+                Audio.source.outputAudioMixerGroup = AudioGroups[1];
+            else
+                Audio.source.outputAudioMixerGroup = AudioGroups[2];
         }
     }
 
@@ -59,7 +65,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteAll()
     {
-        foreach (var s in Sounds) s.Mute = !s.Mute;
+        foreach (var audio in Sounds) audio.Mute = !audio.Mute;
     }
 
     /// <summary>
@@ -122,13 +128,13 @@ public class AudioManager : MonoBehaviour
                 Audio.source.Stop();
         }
     }
-    /* 
-        public string GetCurrentSong()
+
+    string GetCurrentSong()
+    {
+        foreach (var Audio in Sounds)
         {
-            foreach (var Audio in Sounds)
-            {
-                if (Audio.AudioGroup.ToString() == "Music" && Audio.source.isPlaying)
-                    return Audio.name;
-            }
-        } */
+            if (Audio.source.outputAudioMixerGroup == AudioGroups[1] && Audio.source.isPlaying)
+                return Audio.name;
+        }
+    }
 }
