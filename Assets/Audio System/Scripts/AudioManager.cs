@@ -9,9 +9,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager Instance;
 
-    [HideInInspector]
-    public bool isPlaying;
-
     // Use this for initialization
     void Awake()
     {
@@ -53,10 +50,10 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void Play(string Name)
     {
-        var s = Array.Find(Sounds, sound => sound.name == Name);
-        if (s == null)
+        var Audio = Array.Find(Sounds, sound => sound.name == Name);
+        if (Audio == null)
             return;
-        s.source.Play();
+        Audio.source.Play();
     }
 
     #region Mute Audio
@@ -65,7 +62,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteAll()
     {
-        foreach (var audio in Sounds) audio.Mute = !audio.Mute;
+        foreach (var Audio in Sounds) Audio.Mute = !Audio.Mute;
     }
 
     /// <summary>
@@ -73,10 +70,10 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteMenu()
     {
-        foreach (var s in Sounds)
+        foreach (var Audio in Sounds)
         {
-            if (s.AudioGroup.ToString() == "Menu")
-                s.Mute = !s.Mute;
+            if (Audio.AudioGroup == Sound.AudioType.Menu)
+                Audio.Mute = !Audio.Mute;
         }
     }
 
@@ -85,10 +82,10 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteMusic()
     {
-        foreach (var s in Sounds)
+        foreach (var Audio in Sounds)
         {
-            if (s.AudioGroup.ToString() == "Music")
-                s.Mute = !s.Mute;
+            if (Audio.AudioGroup == Sound.AudioType.Music)
+                Audio.Mute = !Audio.Mute;
         }
     }
 
@@ -97,23 +94,60 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteSound()
     {
-        foreach (var s in Sounds)
+        foreach (var Audio in Sounds)
         {
-            if (s.AudioGroup.ToString() == "Sound FX")
-                s.Mute = !s.Mute;
+            if (Audio.AudioGroup == Sound.AudioType.World)
+                Audio.Mute = !Audio.Mute;
         }
     }
     #endregion
 
+    #region Stop Audio
     ///<summary>
     /// Stops the selected audio from playing
     ///</summary>
     public void Stop(string Name)
     {
-        var s = Array.Find(Sounds, sound => sound.name == Name);
-        if (s == null)
+        var Audio = Array.Find(Sounds, sound => sound.name == Name);
+        if (Audio == null)
             return;
-        s.source.Stop();
+        Audio.source.Stop();
+    }
+
+    /// <summary>
+    /// Stops all menu audio.
+    /// </summary>
+    public void StopMenu()
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.Menu)
+                Audio.source.Stop();
+        }
+    }
+
+    /// <summary>
+    /// Stops all menu audio.
+    /// </summary>
+    public void StopMusic()
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.Music)
+                Audio.source.Stop();
+        }
+    }
+
+    /// <summary>
+    /// Stops all menu audio.
+    /// </summary>
+    public void StopSounds()
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.World)
+                Audio.source.Stop();
+        }
     }
 
     ///<summary>
@@ -123,18 +157,20 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            isPlaying = Audio.source.isPlaying;
-            if (isPlaying)
+            if (Audio.source.isPlaying)
                 Audio.source.Stop();
         }
     }
+    #endregion
 
-    string GetCurrentSong()
+    public string GetCurrentSong()
     {
+        string AudioName = "";
         foreach (var Audio in Sounds)
         {
             if (Audio.source.outputAudioMixerGroup == AudioGroups[1] && Audio.source.isPlaying)
-                return Audio.name;
+                AudioName = Audio.clip.name;
         }
+        return AudioName;
     }
 }
