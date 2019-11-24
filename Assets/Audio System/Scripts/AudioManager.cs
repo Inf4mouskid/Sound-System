@@ -163,14 +163,53 @@ public class AudioManager : MonoBehaviour
     }
     #endregion
 
+    #region Audio Data
+    /// <summary>
+    /// Gets the name of the song currently playing.
+    /// </summary>
     public string GetCurrentSong()
     {
         string AudioName = "";
         foreach (var Audio in Sounds)
         {
-            if (Audio.source.outputAudioMixerGroup == AudioGroups[1] && Audio.source.isPlaying)
-                AudioName = Audio.clip.name;
+            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+                AudioName = Audio.name;
         }
         return AudioName;
     }
+
+    /// <summary>
+    /// Gets the volume of the song currently playing.
+    /// </summary>
+    public float GetCurrentSongVolume()
+    {
+        float Volume = 0;
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+                Volume = Audio.volume;
+        }
+        return Volume;
+    }
+    /// <summary>
+    /// Allows the audio to fade out for a transition
+    /// </summary>
+    public void SetFadeVolume(float Volume)
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+                Audio.volume -= Volume;
+        }
+    }
+
+    public void SetSourceVolume(float Volume)
+    {
+        foreach (var Audio in Sounds)
+        {
+            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+                Audio.volume = Volume;
+        }
+    }
+    #endregion
 }

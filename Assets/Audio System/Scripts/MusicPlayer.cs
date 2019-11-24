@@ -24,7 +24,7 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         var Manager = FindObjectOfType<AudioManager>();
-        text.text = Manager.GetCurrentSong().ToString();
+        text.text = Manager.GetCurrentSong();
     }
 
     ///<summary>
@@ -39,13 +39,25 @@ public class MusicPlayer : MonoBehaviour
     }
 
     ///<summary>
-    /// Cuts to the next song to play.
+    /// Fades to the next song to play.
     ///</summary>
-    public void FadeTransition(string Name)
+    public void FadeOut()
     {
         var Manager = FindObjectOfType<AudioManager>();
+        StartCoroutine(Fade());
+    }
+
+    IEnumerator Fade()
+    {
+        var Manager = FindObjectOfType<AudioManager>();
+        while (Manager.GetCurrentSongVolume() > 0f)
+        {
+            Manager.SetFadeVolume(Time.deltaTime / 10.0f);
+            yield return null;
+            if (Manager.GetCurrentSongVolume() > 0f && Manager.GetCurrentSongVolume() < 0.001f)
+                Manager.SetSourceVolume(0);
+        }
+        Manager.SetSourceVolume(1);
         Manager.StopMusic();
-        // Next song to play.
-        Manager.Play(Name);
     }
 }

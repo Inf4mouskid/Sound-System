@@ -926,7 +926,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 731550563800415882}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1431514276}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33a89cf41dfd7ea47aaccf5b5a617353, type: 3}
@@ -2561,10 +2561,10 @@ RectTransform:
   m_Father: {fileID: 469970380}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0066390038, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -50, y: -60}
+  m_SizeDelta: {x: -150, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &974518728
 MonoBehaviour:
@@ -2627,11 +2627,22 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1757379975}
-        m_MethodName: CutTransition
+        m_MethodName: FadeOut
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1431514276}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3696,6 +3707,12 @@ MonoBehaviour:
   m_Script: {fileID: -146154839, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1431514276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8484559645308464656, guid: 8871d16ce481ecc48843f06841d3081c,
+    type: 3}
+  m_PrefabInstance: {fileID: 731550563800415882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446827348
 GameObject:
   m_ObjectHideFlags: 0
@@ -6190,7 +6207,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -193.4, y: -40}
+  m_SizeDelta: {x: -150, y: -40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &731550563800415882
 PrefabInstance:
@@ -6342,6 +6359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DJ Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7501295805256592377, guid: 8448ebad9785cbd42b985921ec247625,
+        type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 2139833740}
     - target: {fileID: 7501295805256592374, guid: 8448ebad9785cbd42b985921ec247625,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6397,10 +6419,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7501295805256592377, guid: 8448ebad9785cbd42b985921ec247625,
-        type: 3}
-      propertyPath: text
-      value: 
-      objectReference: {fileID: 2139833740}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8448ebad9785cbd42b985921ec247625, type: 3}

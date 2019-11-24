@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - Mixer: {fileID: 24100000, guid: b9923718af269054490b16c18f20e494, type: 2}
+  - Mixer: {fileID: 24100000, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
