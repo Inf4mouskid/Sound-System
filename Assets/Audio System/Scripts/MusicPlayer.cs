@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MusicPlayer : MonoBehaviour
 {
     public Text text;
+    [Range(1f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
     void Awake()
@@ -52,7 +53,7 @@ public class MusicPlayer : MonoBehaviour
         var Manager = FindObjectOfType<AudioManager>();
         while (Manager.GetCurrentSongVolume() > 0f)
         {
-            Manager.SetFadeVolume(Time.deltaTime / 10.0f);
+            Manager.SetFadeVolume(Time.deltaTime / SecondsToFade);
             yield return null;
             if (Manager.GetCurrentSongVolume() > 0f && Manager.GetCurrentSongVolume() < 0.001f)
                 Manager.SetSourceVolume(0);
