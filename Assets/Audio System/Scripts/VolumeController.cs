@@ -24,9 +24,9 @@ public class VolumeController : MonoBehaviour
     /// </summary>
     public void Volume(float Vol)
     {
-        Debug.Log("Volume: " + Mathf.Log10(Vol) * LOG_FORMAT);
-        Mixer.SetFloat("MasterVol", Mathf.Log10(Vol) * LOG_FORMAT);
-        // Mixer.SetFloat("MasterVol", Vol);
+        // Debug.Log("Volume: " + Mathf.Log10(Vol) * LOG_FORMAT);
+        // Mixer.SetFloat("MasterVol", Mathf.Log10(Vol) * LOG_FORMAT);
+        Mixer.SetFloat("MasterVol", Vol);
     }
 
     /// <summary>
@@ -34,9 +34,9 @@ public class VolumeController : MonoBehaviour
     /// </summary>
     public void MenuVolume(float Vol)
     {
-        Debug.Log("Menu: " + Mathf.Log10(Vol) * LOG_FORMAT);
-        Mixer.SetFloat("MenuVol", Mathf.Log10(Vol) * LOG_FORMAT);
-        // Mixer.SetFloat("MenuVol", Vol);
+        // Debug.Log("Menu: " + Mathf.Log10(Vol) * LOG_FORMAT);
+        // Mixer.SetFloat("MenuVol", Mathf.Log10(Vol) * LOG_FORMAT);
+        Mixer.SetFloat("MenuVol", Vol);
     }
 
     /// <summary>
@@ -44,9 +44,9 @@ public class VolumeController : MonoBehaviour
     /// </summary>
     public void MusicVolume(float Vol)
     {
-        Debug.Log("Music: " + Mathf.Log10(Vol) * LOG_FORMAT);
-        Mixer.SetFloat("MusicVol", Mathf.Log10(Vol) * LOG_FORMAT);
-        // Mixer.SetFloat("MusicVol", Vol);
+        // Debug.Log("Music: " + Mathf.Log10(Vol) * LOG_FORMAT);
+        // Mixer.SetFloat("MusicVol", Mathf.Log10(Vol) * LOG_FORMAT);
+        Mixer.SetFloat("MusicVol", Vol);
     }
 
     /// <summary>
@@ -54,8 +54,8 @@ public class VolumeController : MonoBehaviour
     /// </summary>
     public void SoundVolume(float Vol)
     {
-        Debug.Log("Sound: " + Mathf.Log10(Vol) * LOG_FORMAT);
-        Mixer.SetFloat("SoundVol", Mathf.Log10(Vol) * LOG_FORMAT);
-        // Mixer.SetFloat("SoundVol", Vol);
+        // Debug.Log("Sound: " + Mathf.Log10(Vol) * LOG_FORMAT);
+        // Mixer.SetFloat("SoundVol", Mathf.Log10(Vol) * LOG_FORMAT);
+        Mixer.SetFloat("SoundVol", Vol);
     }
 }

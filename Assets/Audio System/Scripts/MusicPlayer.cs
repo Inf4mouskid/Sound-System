@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
     public Text text;
-    [Range(1f, 20f)] public float SecondsToFade = 1f;
+    public TextMeshProUGUI TMP_Text;
+    [Range(0.1f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
     void Awake()
@@ -45,15 +47,15 @@ public class MusicPlayer : MonoBehaviour
     public void FadeOut()
     {
         var Manager = FindObjectOfType<AudioManager>();
-        StartCoroutine(Fade());
+        StartCoroutine(FadeOutAlgorithm());
     }
 
-    IEnumerator Fade()
+    IEnumerator FadeOutAlgorithm()
     {
         var Manager = FindObjectOfType<AudioManager>();
         while (Manager.GetCurrentSongVolume() > 0f)
         {
-            Manager.SetFadeVolume(Time.deltaTime / SecondsToFade);
+            Manager.SetFadeOutVolume(Time.deltaTime / SecondsToFade);
             yield return null;
             if (Manager.GetCurrentSongVolume() > 0f && Manager.GetCurrentSongVolume() < 0.001f)
                 Manager.SetSourceVolume(0);

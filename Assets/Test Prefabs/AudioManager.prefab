@@ -78,7 +78,7 @@ MonoBehaviour:
   - name: Horror Theme 1
     clip: {fileID: 8300000, guid: 175ece541719a324aa1c7f80d3297cbc, type: 3}
     AudioGroup: 1
-    volume: 0.2
+    volume: 1
     pitch: 1
     spacialBlend: 0
     Mute: 0
@@ -102,4 +102,3 @@ MonoBehaviour:
     Mute: 0
     Loop: 0
     source: {fileID: 0}
-  isPlaying: 0

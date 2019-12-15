@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public GameObject[] Appliances;
     public AudioMixerGroup[] AudioGroups;
     public Sound[] Sounds;
 
@@ -18,6 +19,11 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+        }
+
+        for (int i = 0; i < Appliances.Length; i++)
+        {
+            Appliances[i].AddComponent<AudioSource>();
         }
 
         foreach (var Audio in Sounds)
@@ -194,7 +200,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// Allows the audio to fade out for a transition
     /// </summary>
-    public void SetFadeVolume(float Volume)
+    public void SetFadeOutVolume(float Volume)
     {
         foreach (var Audio in Sounds)
         {
