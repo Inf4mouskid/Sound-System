@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public Text text;
     public TextMeshProUGUI TMP_Text;
     [Range(0.1f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
@@ -27,7 +25,8 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         var Manager = FindObjectOfType<AudioManager>();
-        text.text = Manager.GetCurrentSong();
+        TMP_Text.text = Manager.GetCurrentSong();
+        //text.text = Manager.GetCurrentSong();
     }
 
     ///<summary>
