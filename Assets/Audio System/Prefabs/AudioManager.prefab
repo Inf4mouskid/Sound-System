@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a89cf41dfd7ea47aaccf5b5a617353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Appliances: []
   AudioGroups:
   - {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
   - {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
@@ -50,7 +51,8 @@ MonoBehaviour:
   Sounds:
   - name: Button Positive
     clip: {fileID: 8300000, guid: 9c5f7a1559aec5945ad56dc97c0a8f34, type: 3}
-    AudioGroup: 0
+    AudioGroup: {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c,
+      type: 2}
     volume: 1
     pitch: 1
     spacialBlend: 0
@@ -59,11 +61,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Button Negative
     clip: {fileID: 8300000, guid: d3c5980fc40c01c4ca3689d9865fd9a1, type: 3}
-    AudioGroup: 0
+    AudioGroup: {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c,
+      type: 2}
     volume: 1
     pitch: 1
     spacialBlend: 0
     Mute: 0
     Loop: 0
     source: {fileID: 0}
-  isPlaying: 0

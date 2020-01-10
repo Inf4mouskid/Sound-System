@@ -30,12 +30,7 @@ public class AudioManager : MonoBehaviour
         {
             Audio.source = gameObject.AddComponent<AudioSource>();
             Audio.source.clip = Audio.clip;
-            if (Audio.AudioGroup == Sound.AudioType.Menu)
-                Audio.source.outputAudioMixerGroup = AudioGroups[0];
-            else if (Audio.AudioGroup == Sound.AudioType.Music)
-                Audio.source.outputAudioMixerGroup = AudioGroups[1];
-            else
-                Audio.source.outputAudioMixerGroup = AudioGroups[2];
+            Audio.source.outputAudioMixerGroup = Audio.AudioGroup;
         }
     }
 
@@ -45,8 +40,8 @@ public class AudioManager : MonoBehaviour
         foreach (var Audio in Sounds)
         {
             Audio.source.volume = Audio.volume;
-            Audio.source.mute = Audio.Mute;
-            Audio.source.loop = Audio.Loop;
+            Audio.source.mute = Audio.mute;
+            Audio.source.loop = Audio.loop;
             Audio.source.pitch = Audio.pitch;
         }
     }
@@ -68,7 +63,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public void MuteAll()
     {
-        foreach (var Audio in Sounds) Audio.Mute = !Audio.Mute;
+        foreach (var Audio in Sounds) Audio.mute = !Audio.mute;
     }
 
     /// <summary>
@@ -78,8 +73,8 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Menu)
-                Audio.Mute = !Audio.Mute;
+            if (Audio.AudioGroup == AudioGroups[0])
+                Audio.mute = !Audio.mute;
         }
     }
 
@@ -90,8 +85,8 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music)
-                Audio.Mute = !Audio.Mute;
+            if (Audio.AudioGroup == AudioGroups[1])
+                Audio.mute = !Audio.mute;
         }
     }
 
@@ -102,8 +97,8 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.World)
-                Audio.Mute = !Audio.Mute;
+            if (Audio.AudioGroup == AudioGroups[2])
+                Audio.mute = !Audio.mute;
         }
     }
     #endregion
@@ -127,7 +122,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Menu)
+            if (Audio.AudioGroup == AudioGroups[0])
                 Audio.source.Stop();
         }
     }
@@ -139,7 +134,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music)
+            if (Audio.AudioGroup == AudioGroups[1])
                 Audio.source.Stop();
         }
     }
@@ -151,7 +146,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.World)
+            if (Audio.AudioGroup == AudioGroups[2])
                 Audio.source.Stop();
         }
     }
@@ -178,7 +173,7 @@ public class AudioManager : MonoBehaviour
         string AudioName = "";
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+            if (Audio.AudioGroup == AudioGroups[1] && Audio.source.isPlaying)
                 AudioName = Audio.name;
         }
         return AudioName;
@@ -192,7 +187,7 @@ public class AudioManager : MonoBehaviour
         float Volume = 0;
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+            if (Audio.AudioGroup == AudioGroups[1] && Audio.source.isPlaying)
                 Volume = Audio.volume;
         }
         return Volume;
@@ -204,7 +199,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+            if (Audio.AudioGroup == AudioGroups[1] && Audio.source.isPlaying)
                 Audio.volume -= Volume;
         }
     }
@@ -213,7 +208,7 @@ public class AudioManager : MonoBehaviour
     {
         foreach (var Audio in Sounds)
         {
-            if (Audio.AudioGroup == Sound.AudioType.Music && Audio.source.isPlaying)
+            if (Audio.AudioGroup == AudioGroups[1] && Audio.source.isPlaying)
                 Audio.volume = Volume;
         }
     }
