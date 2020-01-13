@@ -43,5 +43,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7de4b46a7f89b408ca12264aa53750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicGroup: {fileID: 0}
-  Themes: []
+  MusicGroup: {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c,
+    type: 2}
+  Themes:
+  - name: Tense Theme
+    clip: {fileID: 8300000, guid: 71489f842bd838c429d05f9dfa4afc28, type: 3}
+    volume: 1
+    pitch: 1
+    mute: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Action Theme
+    clip: {fileID: 8300000, guid: 4d68cc416dc02134781c1dae13ad077a, type: 3}
+    volume: 1
+    pitch: 1
+    mute: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: "Love Theme ( \u0361\xB0 \u035C\u0296 \u0361\xB0)"
+    clip: {fileID: 8300000, guid: 541296a059700a041a55e432757937ac, type: 3}
+    volume: 1
+    pitch: 1
+    mute: 0
+    loop: 1
+    source: {fileID: 0}
+  - name: Horror Theme
+    clip: {fileID: 8300000, guid: 175ece541719a324aa1c7f80d3297cbc, type: 3}
+    volume: 1
+    pitch: 1
+    mute: 0
+    loop: 1
+    source: {fileID: 0}

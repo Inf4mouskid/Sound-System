@@ -42,7 +42,7 @@ public class MenuAudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Plays an audio file by name. (in other scripts use 'FindObjectOfType')
+    /// Plays an audio file by name. (usage in other scripts -> 'FindObjectOfType')
     /// </summary>
     public void Play(string Name)
     {
@@ -55,7 +55,7 @@ public class MenuAudioManager : MonoBehaviour
     /// <summary>
     /// Mutes all the audio in the game
     /// </summary>
-    public void MuteAll()
+    public void Mute()
     {
         foreach (var Audio in MenuSounds) Audio.mute = !Audio.mute;
     }
@@ -63,7 +63,7 @@ public class MenuAudioManager : MonoBehaviour
     ///<summary>
     /// Stops all audio from playing
     ///</summary>
-    public void StopAll()
+    public void Stop()
     {
         foreach (var Audio in MenuSounds)
         {

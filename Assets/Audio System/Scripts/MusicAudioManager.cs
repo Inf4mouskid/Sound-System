@@ -55,15 +55,27 @@ public class MusicAudioManager : MonoBehaviour
     /// <summary>
     /// Mutes all the audio in the game
     /// </summary>
-    public void MuteAll()
+    public void Mute()
     {
         foreach (var Audio in Themes) Audio.mute = !Audio.mute;
     }
 
     ///<summary>
+    /// Stops an audio from playing
+    ///</summary>
+    public void Stop(string Name)
+    {
+        var Audio = Array.Find(Themes, sound => sound.name == Name);
+        if (Audio == null)
+            return;
+        if (Audio.source.isPlaying)
+            Audio.source.Stop();
+    }
+
+    ///<summary>
     /// Stops all audio from playing
     ///</summary>
-    public void Stop()
+    public void StopAll()
     {
         foreach (var Audio in Themes)
         {

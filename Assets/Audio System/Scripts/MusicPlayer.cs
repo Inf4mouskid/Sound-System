@@ -35,7 +35,7 @@ public class MusicPlayer : MonoBehaviour
     public void CutTransition(string Name)
     {
         var MusicManager = FindObjectOfType<MusicAudioManager>();
-        MusicManager.Stop();
+        MusicManager.StopAll();
         // Next song to play.
         MusicManager.Play(Name);
     }
@@ -60,6 +60,6 @@ public class MusicPlayer : MonoBehaviour
                 MusicManager.SetSourceVolume(0);
         }
         MusicManager.SetSourceVolume(1);
-        MusicManager.Stop();
+        MusicManager.StopAll();
     }
 }
