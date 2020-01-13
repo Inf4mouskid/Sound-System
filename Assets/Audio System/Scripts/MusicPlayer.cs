@@ -24,8 +24,8 @@ public class MusicPlayer : MonoBehaviour
 
     void Update()
     {
-        var Manager = FindObjectOfType<AudioManager>();
-        TMP_Text.text = Manager.GetCurrentSong();
+        var MusicManager = FindObjectOfType<MusicAudioManager>();
+        TMP_Text.text = MusicManager.GetCurrentSong();
         //text.text = Manager.GetCurrentSong();
     }
 
@@ -34,10 +34,10 @@ public class MusicPlayer : MonoBehaviour
     ///</summary>
     public void CutTransition(string Name)
     {
-        var Manager = FindObjectOfType<AudioManager>();
-        Manager.StopMusic();
+        var MusicManager = FindObjectOfType<MusicAudioManager>();
+        MusicManager.Stop();
         // Next song to play.
-        Manager.Play(Name);
+        MusicManager.Play(Name);
     }
 
     ///<summary>
@@ -45,21 +45,21 @@ public class MusicPlayer : MonoBehaviour
     ///</summary>
     public void FadeOut()
     {
-        var Manager = FindObjectOfType<AudioManager>();
+        var MusicManager = FindObjectOfType<MusicAudioManager>();
         StartCoroutine(FadeOutAlgorithm());
     }
 
     IEnumerator FadeOutAlgorithm()
     {
-        var Manager = FindObjectOfType<AudioManager>();
-        while (Manager.GetCurrentSongVolume() > 0f)
+        var MusicManager = FindObjectOfType<MusicAudioManager>();
+        while (MusicManager.GetCurrentSongVolume() > 0f)
         {
-            Manager.SetFadeOutVolume(Time.deltaTime / SecondsToFade);
+            MusicManager.SetFadeOutVolume(Time.deltaTime / SecondsToFade);
             yield return null;
-            if (Manager.GetCurrentSongVolume() > 0f && Manager.GetCurrentSongVolume() < 0.001f)
-                Manager.SetSourceVolume(0);
+            if (MusicManager.GetCurrentSongVolume() > 0f && MusicManager.GetCurrentSongVolume() < 0.001f)
+                MusicManager.SetSourceVolume(0);
         }
-        Manager.SetSourceVolume(1);
-        Manager.StopMusic();
+        MusicManager.SetSourceVolume(1);
+        MusicManager.Stop();
     }
 }

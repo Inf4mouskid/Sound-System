@@ -12,9 +12,6 @@ public class Sound
     [Tooltip("Sound file to play in game")]
     public AudioClip clip; // Sound file to play
 
-    [Tooltip("Set the audio mixer channel to control the in-game Volume.")]
-    public AudioMixerGroup AudioGroup; // Mixer group used to control the volume
-
     [Header("Attributes")]
 
     [Tooltip("Adjust the volume of the Audio.")]
@@ -24,7 +21,7 @@ public class Sound
     [Tooltip("Adjust the pitch of the Audio.")]
     [Range(0.1f, 3f)]
     public float pitch = 1f; // Set the pitch of the audio
-    
+
     [Tooltip("Set whether or not the audio is muted.")]
     public bool mute; // Sets whether or the audio should loop
 
