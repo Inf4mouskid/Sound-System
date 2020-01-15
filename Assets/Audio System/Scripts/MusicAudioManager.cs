@@ -25,6 +25,7 @@ public class MusicAudioManager : MonoBehaviour
             Theme.source = gameObject.AddComponent<AudioSource>();
             Theme.source.clip = Theme.clip;
             Theme.source.outputAudioMixerGroup = MusicGroup;
+            Theme.source.playOnAwake = false;
         }
     }
 
@@ -46,10 +47,10 @@ public class MusicAudioManager : MonoBehaviour
     /// </summary>
     public void Play(string Name)
     {
-        var Audio = Array.Find(Themes, sound => sound.name == Name);
-        if (Audio == null)
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
             return;
-        Audio.source.Play();
+        Theme.source.Play();
     }
 
     /// <summary>
@@ -57,7 +58,7 @@ public class MusicAudioManager : MonoBehaviour
     /// </summary>
     public void Mute()
     {
-        foreach (var Audio in Themes) Audio.mute = !Audio.mute;
+        foreach (var Theme in Themes) Theme.mute = !Theme.mute;
     }
 
     ///<summary>
@@ -65,11 +66,11 @@ public class MusicAudioManager : MonoBehaviour
     ///</summary>
     public void Stop(string Name)
     {
-        var Audio = Array.Find(Themes, sound => sound.name == Name);
-        if (Audio == null)
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
             return;
-        if (Audio.source.isPlaying)
-            Audio.source.Stop();
+        if (Theme.source.isPlaying)
+            Theme.source.Stop();
     }
 
     ///<summary>
@@ -77,10 +78,10 @@ public class MusicAudioManager : MonoBehaviour
     ///</summary>
     public void StopAll()
     {
-        foreach (var Audio in Themes)
+        foreach (var Theme in Themes)
         {
-            if (Audio.source.isPlaying)
-                Audio.source.Stop();
+            if (Theme.source.isPlaying)
+                Theme.source.Stop();
         }
     }
 
@@ -90,10 +91,10 @@ public class MusicAudioManager : MonoBehaviour
     public string GetCurrentSong()
     {
         string AudioName = "";
-        foreach (var Audio in Themes)
+        foreach (var Theme in Themes)
         {
-            if (Audio.source.isPlaying)
-                AudioName = Audio.name;
+            if (Theme.source.isPlaying)
+                AudioName = Theme.name;
         }
         return AudioName;
     }
@@ -104,10 +105,10 @@ public class MusicAudioManager : MonoBehaviour
     public float GetCurrentSongVolume()
     {
         float Volume = 0;
-        foreach (var Audio in Themes)
+        foreach (var Theme in Themes)
         {
-            if (Audio.source.isPlaying)
-                Volume = Audio.volume;
+            if (Theme.source.isPlaying)
+                Volume = Theme.volume;
         }
         return Volume;
     }
@@ -117,19 +118,31 @@ public class MusicAudioManager : MonoBehaviour
     /// </summary>
     public void SetFadeOutVolume(float Volume)
     {
-        foreach (var Audio in Themes)
+        foreach (var Theme in Themes)
         {
-            if (Audio.source.isPlaying)
-                Audio.volume -= Volume;
+            if (Theme.source.isPlaying)
+                Theme.volume -= Volume;
+        }
+    }
+
+    /// <summary>
+    /// Allows the audio to fade out for a transition
+    /// </summary>
+    public void SetFadeInVolume(float Volume)
+    {
+        foreach (var Theme in Themes)
+        {
+            if (Theme.source.isPlaying)
+                Theme.volume += Volume;
         }
     }
 
     public void SetSourceVolume(float Volume)
     {
-        foreach (var Audio in Themes)
+        foreach (var Theme in Themes)
         {
-            if (Audio.source.isPlaying)
-                Audio.volume = Volume;
+            if (Theme.source.isPlaying)
+                Theme.volume = Volume;
         }
     }
 }
