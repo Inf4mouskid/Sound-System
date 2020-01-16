@@ -6,7 +6,7 @@ using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public TextMeshProUGUI TMP_Text;
+    public TextMeshProUGUI Text;
     [Range(0.1f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
@@ -25,7 +25,7 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         var MusicManager = FindObjectOfType<MusicAudioManager>();
-        TMP_Text.text = MusicManager.GetCurrentSong();
+        Text.text = MusicManager.GetCurrentSong();
         //text.text = Manager.GetCurrentSong();
     }
 
