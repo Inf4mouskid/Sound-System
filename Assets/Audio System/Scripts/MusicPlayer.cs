@@ -6,11 +6,8 @@ using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
-<<<<<<< HEAD
     public TextMeshProUGUI Text;
-=======
     public TextMeshProUGUI DisplayText;
->>>>>>> fc9188f6d6dba14f215640bd0129e1d83a696b09
     [Range(0.1f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
@@ -29,13 +26,10 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         var MusicManager = FindObjectOfType<MusicAudioManager>();
-<<<<<<< HEAD
         Text.text = MusicManager.GetCurrentSong();
         //text.text = Manager.GetCurrentSong();
-=======
         if (DisplayText != null)
             DisplayText.text = MusicManager.GetCurrentSong();
->>>>>>> fc9188f6d6dba14f215640bd0129e1d83a696b09
     }
 
     ///<summary>
