@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public TextMeshProUGUI Text;
     public TextMeshProUGUI DisplayText;
-    [Range(0.1f, 20f)] public float SecondsToFade = 1f;
+    public Text Input;
+    [Range(0.5f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
     void Awake()
@@ -26,10 +27,19 @@ public class MusicPlayer : MonoBehaviour
     void Update()
     {
         var MusicManager = FindObjectOfType<MusicAudioManager>();
-        Text.text = MusicManager.GetCurrentSong();
-        //text.text = Manager.GetCurrentSong();
         if (DisplayText != null)
             DisplayText.text = MusicManager.GetCurrentSong();
+    }
+
+    ///<summary>
+    /// Cuts to the next song to play.
+    ///</summary>
+    public void CutTransition()
+    {
+        var MusicManager = FindObjectOfType<MusicAudioManager>();
+        MusicManager.StopAll();
+        // Next song to play.
+        MusicManager.Play(Input.text);
     }
 
     ///<summary>
@@ -54,9 +64,9 @@ public class MusicPlayer : MonoBehaviour
     ///<summary>
     /// Fades into the current song.
     ///</summary>
-    public void FadeIn(string Name)
+    public void FadeIn()
     {
-        StartCoroutine(FadeInAlgorithm(Name));
+        StartCoroutine(FadeInAlgorithm());
     }
 
     IEnumerator FadeOutAlgorithm()
@@ -73,11 +83,9 @@ public class MusicPlayer : MonoBehaviour
         MusicManager.StopAll();
     }
 
-    IEnumerator FadeInAlgorithm(string Name)
+    IEnumerator FadeInAlgorithm()
     {
         var MusicManager = FindObjectOfType<MusicAudioManager>();
-        MusicManager.StopAll();
-        MusicManager.Play(Name);
         MusicManager.SetSourceVolume(0);
         while (MusicManager.GetCurrentSongVolume() < 1f)
         {
