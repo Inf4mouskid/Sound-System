@@ -60,7 +60,7 @@ MonoBehaviour:
     mute: 0
     loop: 1
     source: {fileID: 0}
-  - name: "Love Theme ( \u0361\xB0 \u035C\u0296 \u0361\xB0)"
+  - name: Love Theme
     clip: {fileID: 8300000, guid: 541296a059700a041a55e432757937ac, type: 3}
     volume: 1
     pitch: 1
