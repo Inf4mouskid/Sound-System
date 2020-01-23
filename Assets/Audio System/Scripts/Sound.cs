@@ -28,5 +28,9 @@ public class Sound
     [Tooltip("Set whether or not the audio is looping.")]
     public bool loop; // Sets whether or the audio should loop
 
+    [Tooltip("Sets whether or not the audio is in 3D space.")]
+    [Range(0f, 1f)]
+    public float SpacialBlend = 1f;
+
     [HideInInspector] public AudioSource source;
 }

@@ -19,15 +19,18 @@ public class WorldAudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
+        // Sets the values for each audio sources
         foreach (var item in Appliances)
         {
             if (item.GetComponent<AudioSource>() != null)
-                item.GetComponent<AudioSource>().outputAudioMixerGroup = World;
+            {
+                var Audio = item.GetComponent<AudioSource>();
+                Audio.Stop();
+                Audio.playOnAwake = false;
+                Audio.outputAudioMixerGroup = World;
+                Audio.spatialBlend = 1;
+            }
         }
     }
 }

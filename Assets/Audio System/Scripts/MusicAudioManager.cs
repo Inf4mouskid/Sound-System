@@ -25,7 +25,6 @@ public class MusicAudioManager : MonoBehaviour
             Theme.source = gameObject.AddComponent<AudioSource>();
             Theme.source.clip = Theme.clip;
             Theme.source.outputAudioMixerGroup = MusicGroup;
-            Theme.source.playOnAwake = false;
         }
     }
 

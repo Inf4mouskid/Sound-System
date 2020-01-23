@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisplayText: {fileID: 0}
-  SecondsToFade: 3
+  Input: {fileID: 0}
+  SecondsToFade: 5

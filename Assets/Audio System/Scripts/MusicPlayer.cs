@@ -8,7 +8,7 @@ using TMPro;
 public class MusicPlayer : MonoBehaviour
 {
     public TextMeshProUGUI DisplayText;
-    public Text Input;
+    public TMP_InputField Input;
     [Range(0.5f, 20f)] public float SecondsToFade = 1f;
     public static MusicPlayer Instance;
 
