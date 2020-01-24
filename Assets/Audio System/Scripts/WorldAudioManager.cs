@@ -7,6 +7,7 @@ public class WorldAudioManager : MonoBehaviour
 {
     public AudioMixerGroup World;
     public GameObject[] Appliances;
+    public Sound[] sounds;
 
     public static WorldAudioManager Instance;
 
@@ -23,13 +24,13 @@ public class WorldAudioManager : MonoBehaviour
         // Sets the values for each audio sources
         foreach (var item in Appliances)
         {
-            if (item.GetComponent<AudioSource>() != null)
+            foreach (var Audio in sounds)
             {
-                var Audio = item.GetComponent<AudioSource>();
-                Audio.Stop();
-                Audio.playOnAwake = false;
-                Audio.outputAudioMixerGroup = World;
-                Audio.spatialBlend = 1;
+                Audio.source = item.AddComponent<AudioSource>();
+                Audio.source.clip = Audio.clip;
+                Audio.source.outputAudioMixerGroup = World;
+                Audio.SpacialBlend = 1;
+                Audio.source.spatialBlend = Audio.SpacialBlend;
             }
         }
     }

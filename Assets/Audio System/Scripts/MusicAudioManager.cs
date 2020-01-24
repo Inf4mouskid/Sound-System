@@ -113,7 +113,7 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Allows the audio to fade out for a transition
+    /// Allows the audio to fade out
     /// </summary>
     public void SetFadeOutVolume(float Volume)
     {
@@ -125,7 +125,7 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Allows the audio to fade out for a transition
+    /// Allows the audio to fade in
     /// </summary>
     public void SetFadeInVolume(float Volume)
     {
@@ -136,6 +136,10 @@ public class MusicAudioManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the volume of the audio
+    /// </summary>
+    /// <param name="Volume"></param>
     public void SetSourceVolume(float Volume)
     {
         foreach (var Theme in Themes)
