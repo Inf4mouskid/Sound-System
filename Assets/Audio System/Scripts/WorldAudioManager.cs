@@ -12,8 +12,8 @@ public class WorldAudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance != null)
-            Destroy(gameObject);
+        // Keep the game object Active between scenes
+        if (Instance != null) Destroy(gameObject);
         else
         {
             Instance = this;

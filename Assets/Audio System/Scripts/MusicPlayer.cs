@@ -7,15 +7,14 @@ using TMPro;
 public class MusicPlayer : MonoBehaviour
 {
     public TextMeshProUGUI DisplayText;
-    public TMP_InputField Input;
     [Range(0.5f, 20f)] public float SecondsToFade = 1f;
+    private MusicAudioManager MusicManager;
     public static MusicPlayer Instance;
 
     void Awake()
     {
         // Keep the game object Active between scenes
-        if (Instance != null)
-            Destroy(gameObject);
+        if (Instance != null) Destroy(gameObject);
         else
         {
             Instance = this;
@@ -23,10 +22,14 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        MusicManager = FindObjectOfType<MusicAudioManager>();
+    }
+
     void Update()
     {
         //Displays the current song being played
-        var MusicManager = FindObjectOfType<MusicAudioManager>();
         if (DisplayText != null)
             DisplayText.text = MusicManager.GetCurrentSong();
     }
@@ -34,23 +37,10 @@ public class MusicPlayer : MonoBehaviour
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
-    public void CutTransition()
-    {
-        var MusicManager = FindObjectOfType<MusicAudioManager>();
-        MusicManager.StopAll();
-        // Next song to play.
-        MusicManager.Play(Input.text);
-    }
-
-    ///<summary>
-    /// Cuts to the next song to play.
-    ///</summary>
     public void CutTransition(string Name)
     {
-        var MusicManager = FindObjectOfType<MusicAudioManager>();
         MusicManager.StopAll();
-        // Next song to play.
-        MusicManager.Play(Name);
+        MusicManager.Play(Name); // Next song to play.
     }
 
     ///<summary>
@@ -69,9 +59,9 @@ public class MusicPlayer : MonoBehaviour
         StartCoroutine(FadeInAlgorithm());
     }
 
+    // Algorithm used to make audio fade out.
     IEnumerator FadeOutAlgorithm()
     {
-        var MusicManager = FindObjectOfType<MusicAudioManager>();
         while (MusicManager.GetCurrentSongVolume() > 0f)
         {
             MusicManager.SetFadeOutVolume(Time.deltaTime / SecondsToFade);
@@ -83,9 +73,21 @@ public class MusicPlayer : MonoBehaviour
         MusicManager.StopAll();
     }
 
+    // Algorithm used to make audio fade in.
     IEnumerator FadeInAlgorithm()
     {
-        var MusicManager = FindObjectOfType<MusicAudioManager>();
+        MusicManager.SetSourceVolume(0);
+        while (MusicManager.GetCurrentSongVolume() < 1f)
+        {
+            MusicManager.SetFadeInVolume(Time.deltaTime / SecondsToFade);
+            yield return null;
+            if (MusicManager.GetCurrentSongVolume() < 1f && MusicManager.GetCurrentSongVolume() > 0.99f)
+                MusicManager.SetSourceVolume(1);
+        }
+    }
+
+    IEnumerator CrossFadeAlgorithm()
+    {
         MusicManager.SetSourceVolume(0);
         while (MusicManager.GetCurrentSongVolume() < 1f)
         {
