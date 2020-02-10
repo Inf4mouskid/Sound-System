@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class MusicAudioManager : MonoBehaviour
 {
-    public AudioMixerGroup MusicGroup;
+    [SerializeField] AudioMixerGroup MusicGroup = null;
     public Sound[] Themes;
 
     public static MusicAudioManager Instance;
@@ -61,21 +61,20 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Stops an audio from playing
+    /// Stops a song from playing
     ///</summary>
     public void Stop(string Name)
     {
         var Theme = Array.Find(Themes, sound => sound.name == Name);
         if (Theme == null)
             return;
-        if (Theme.source.isPlaying)
-            Theme.source.Stop();
+        Theme.source.Stop();
     }
 
     ///<summary>
     /// Stops all audio from playing
     ///</summary>
-    public void StopAll()
+    public void Stop()
     {
         foreach (var Theme in Themes)
         {
@@ -84,68 +83,48 @@ public class MusicAudioManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Gets the name of the song currently playing.
-    /// </summary>
-    public string GetCurrentSong()
-    {
-        string AudioName = "";
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                AudioName = Theme.name;
-        }
-        return AudioName;
-    }
-
-    /// <summary>
-    /// Gets the volume of the song currently playing.
-    /// </summary>
-    public float GetCurrentSongVolume()
+    ///<summary>
+    /// Returns the specified songs volume
+    ///</summary>
+    public float GetSongVolume(string Name)
     {
         float Volume = 0;
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                Volume = Theme.volume;
-        }
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme != null)
+            Volume = Theme.volume;
         return Volume;
     }
 
-    /// <summary>
-    /// Allows the audio to fade out
-    /// </summary>
-    public void SetFadeOutVolume(float Volume)
+    ///<summary>
+    /// Allows a specific peice of audio to go up in volume.
+    ///</summary>
+    public void VolumeUp(string Name, float Volume)
     {
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                Theme.volume -= Volume;
-        }
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
+            return;
+        Theme.volume += Volume;
     }
 
-    /// <summary>
-    /// Allows the audio to fade in
-    /// </summary>
-    public void SetFadeInVolume(float Volume)
+    ///<summary>
+    /// Allows a specific peice of audio to go down in volume.
+    ///</summary>
+    public void VolumeDown(string Name, float Volume)
     {
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                Theme.volume += Volume;
-        }
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
+            return;
+        Theme.volume -= Volume;
     }
 
-    /// <summary>
-    /// Sets the volume of the audio
-    /// </summary>
-    /// <param name="Volume"></param>
-    public void SetSourceVolume(float Volume)
+    ///<summary>
+    /// Sets the volume of a specific theme.
+    ///</summary>
+    public void SetVolume(string Name, float Vol)
     {
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                Theme.volume = Volume;
-        }
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
+            return;
+        Theme.volume = Vol;
     }
 }

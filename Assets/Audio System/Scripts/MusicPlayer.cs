@@ -6,8 +6,6 @@ using TMPro;
 
 public class MusicPlayer : MonoBehaviour
 {
-    public TextMeshProUGUI DisplayText;
-    [Range(0.5f, 20f)] public float SecondsToFade = 1f;
     private MusicAudioManager MusicManager;
     public static MusicPlayer Instance;
 
@@ -27,74 +25,56 @@ public class MusicPlayer : MonoBehaviour
         MusicManager = FindObjectOfType<MusicAudioManager>();
     }
 
-    void Update()
-    {
-        //Displays the current song being played
-        if (DisplayText != null)
-            DisplayText.text = MusicManager.GetCurrentSong();
-    }
-
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
     public void CutTransition(string Name)
     {
-        MusicManager.StopAll();
+        MusicManager.Stop();
         MusicManager.Play(Name); // Next song to play.
-    }
-
-    ///<summary>
-    /// Fades out of the current song.
-    ///</summary>
-    public void FadeOut()
-    {
-        StartCoroutine(FadeOutAlgorithm());
     }
 
     ///<summary>
     /// Fades into the current song.
     ///</summary>
-    public void FadeIn()
+    public void FadeIn(string Name, float SecondsToFade)
     {
-        StartCoroutine(FadeInAlgorithm());
+        MusicManager.Play(Name);
+        StartCoroutine(FadeInAlgorithm(Name, SecondsToFade));
     }
 
-    // Algorithm used to make audio fade out.
-    IEnumerator FadeOutAlgorithm()
+    ///<summary>
+    /// Fades out of the current song.
+    ///</summary>
+    public void FadeOut(string Name, float SecondsToFade)
     {
-        while (MusicManager.GetCurrentSongVolume() > 0f)
-        {
-            MusicManager.SetFadeOutVolume(Time.deltaTime / SecondsToFade);
-            yield return null;
-            if (MusicManager.GetCurrentSongVolume() > 0f && MusicManager.GetCurrentSongVolume() < 0.001f)
-                MusicManager.SetSourceVolume(0);
-        }
-        MusicManager.SetSourceVolume(1);
-        MusicManager.StopAll();
+        StartCoroutine(FadeOutAlgorithm(Name, SecondsToFade));
+        MusicManager.Stop(Name);
     }
 
     // Algorithm used to make audio fade in.
-    IEnumerator FadeInAlgorithm()
+    IEnumerator FadeInAlgorithm(string Name, float SecondsToFade)
     {
-        MusicManager.SetSourceVolume(0);
-        while (MusicManager.GetCurrentSongVolume() < 1f)
+        MusicManager.SetVolume(Name, 0f);
+        while (MusicManager.GetSongVolume(Name) < 1f)
         {
-            MusicManager.SetFadeInVolume(Time.deltaTime / SecondsToFade);
+            MusicManager.VolumeUp(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (MusicManager.GetCurrentSongVolume() < 1f && MusicManager.GetCurrentSongVolume() > 0.99f)
-                MusicManager.SetSourceVolume(1);
+            if (MusicManager.GetSongVolume(Name) < 1f && MusicManager.GetSongVolume(Name) > 0.99f)
+                MusicManager.SetVolume(Name, 1f);
         }
     }
 
-    IEnumerator CrossFadeAlgorithm()
+    // Algorithm used to make audio fade out.
+    IEnumerator FadeOutAlgorithm(string Name, float SecondsToFade)
     {
-        MusicManager.SetSourceVolume(0);
-        while (MusicManager.GetCurrentSongVolume() < 1f)
+        while (MusicManager.GetSongVolume(Name) > 0.01f)
         {
-            MusicManager.SetFadeInVolume(Time.deltaTime / SecondsToFade);
+            MusicManager.VolumeDown(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (MusicManager.GetCurrentSongVolume() < 1f && MusicManager.GetCurrentSongVolume() > 0.99f)
-                MusicManager.SetSourceVolume(1);
+            if (MusicManager.GetSongVolume(Name) > 0f && MusicManager.GetSongVolume(Name) < 0.01f)
+                MusicManager.SetVolume(Name, 0f);
         }
+        MusicManager.SetVolume(Name, 1f);
     }
 }

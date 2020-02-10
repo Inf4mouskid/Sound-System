@@ -43,6 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fbfea36c4eab294b87c79e90e2b2f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayText: {fileID: 0}
-  Input: {fileID: 0}
-  SecondsToFade: 5
+  SecondsToFade: 1
