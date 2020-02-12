@@ -231,7 +231,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -100, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &24908008
 MonoBehaviour:
@@ -281,12 +281,12 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 36
+  m_fontSizeMax: 72
   m_fontStyle: 1
   m_textAlignment: 1025
   m_characterSpacing: 0
@@ -412,7 +412,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Stop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -946,75 +946,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &321853365
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5653555900295985471, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_Name
-      value: MenuAudio
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142332296986259642, guid: 373df6c16dd5a1947a268df0b778db2f,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 373df6c16dd5a1947a268df0b778db2f, type: 3}
 --- !u!1 &322233904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1097,7 +1028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1017684080}
+      - m_Target: {fileID: 0}
         m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
@@ -1108,7 +1039,7 @@ MonoBehaviour:
           m_StringArgument: Negative Button
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1017684080}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -1301,12 +1232,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348367470}
   m_CullTransparentMesh: 0
---- !u!1 &351008331 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1424074517065434073, guid: 1f9d8eefe08d2924f87aee0044866b44,
-    type: 3}
-  m_PrefabInstance: {fileID: 8454300839791824233}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &405155973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1431,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1017684080}
+      - m_Target: {fileID: 0}
         m_MethodName: Mute
         m_Mode: 1
         m_Arguments:
@@ -1626,7 +1551,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1277969176}
+  - {fileID: 1152549476792846693}
   - {fileID: 1266428919}
   - {fileID: 84419671}
   - {fileID: 503918413}
@@ -1926,7 +1851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1017684080}
+      - m_Target: {fileID: 0}
         m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
@@ -1937,7 +1862,7 @@ MonoBehaviour:
           m_StringArgument: Positive Button
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1017684080}
+      - m_Target: {fileID: 0}
         m_MethodName: Play
         m_Mode: 5
         m_Arguments:
@@ -2308,7 +2233,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Fade out
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2644,7 +2569,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Horror Music
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2801,7 +2726,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Music Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2959,7 +2884,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "Sex Music ( \u0361\xB0 \u035C\u0296 \u0361\xB0)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3144,7 +3069,7 @@ PrefabInstance:
     - target: {fileID: 4823677104236735945, guid: 92367f1fa5dbce64395bb9f428ad215f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4823677104236735945, guid: 92367f1fa5dbce64395bb9f428ad215f,
         type: 3}
@@ -3350,18 +3275,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999570602}
   m_CullTransparentMesh: 0
---- !u!114 &1017684080 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5898542851673924413, guid: 373df6c16dd5a1947a268df0b778db2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 321853365}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fa25852b4b9d14a86a4be04cf0cc52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1057616187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3445,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Master Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3842,7 +3755,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Fade in
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4072,12 +3985,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266428918}
   m_CullTransparentMesh: 0
---- !u!224 &1277969176 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1152549477934991996, guid: 666f856f8e88edd40892f71e6200a68d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1152549476792846692}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1277969177 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1152549477934991997, guid: 666f856f8e88edd40892f71e6200a68d,
@@ -4149,7 +4056,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Accept
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4743,7 +4650,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 351008331}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -4948,7 +4855,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Menu Volume
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5528,7 +5435,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_fontAsset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
@@ -5605,7 +5512,7 @@ PrefabInstance:
     - target: {fileID: 7501295805256592374, guid: 8448ebad9785cbd42b985921ec247625,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7501295805256592374, guid: 8448ebad9785cbd42b985921ec247625,
         type: 3}
@@ -5803,7 +5710,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6144,7 +6051,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Tense Music
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6672,7 +6579,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Action Music
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6855,11 +6762,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 469970380}
     m_Modifications:
-    - target: {fileID: 1152549477934991987, guid: 666f856f8e88edd40892f71e6200a68d,
-        type: 3}
-      propertyPath: m_Name
-      value: Text (TMP)
-      objectReference: {fileID: 0}
     - target: {fileID: 1152549477934991996, guid: 666f856f8e88edd40892f71e6200a68d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6981,94 +6883,15 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 36
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 666f856f8e88edd40892f71e6200a68d, type: 3}
---- !u!1001 &8454300839791824233
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1424074517065434073, guid: 1f9d8eefe08d2924f87aee0044866b44,
+    - target: {fileID: 1152549477934991987, guid: 666f856f8e88edd40892f71e6200a68d,
         type: 3}
       propertyPath: m_Name
-      value: WorldAudio
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296236605432075051, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672744870480867002, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: sounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672744870480867002, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: sounds.Array.data[0].volume
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672744870480867002, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: sounds.Array.data[0].pitch
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4672744870480867002, guid: 1f9d8eefe08d2924f87aee0044866b44,
-        type: 3}
-      propertyPath: sounds.Array.data[0].SpacialBlend
-      value: 0
+      value: Text (TMP)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1f9d8eefe08d2924f87aee0044866b44, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 666f856f8e88edd40892f71e6200a68d, type: 3}
+--- !u!4 &1152549476792846693 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 1152549476792846692}
+  m_PrefabAsset: {fileID: 0}
