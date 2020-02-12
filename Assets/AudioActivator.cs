@@ -33,5 +33,13 @@ public class AudioActivator : MonoBehaviour
         {
             Player.FadeOut("Action Theme", 5f);
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Player.CrossFade("Tense Theme", "Action Theme", 3f);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            Music.Stop();
+        }
     }
 }

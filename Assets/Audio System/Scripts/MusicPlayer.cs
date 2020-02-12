@@ -49,7 +49,15 @@ public class MusicPlayer : MonoBehaviour
     public void FadeOut(string Name, float SecondsToFade)
     {
         StartCoroutine(FadeOutAlgorithm(Name, SecondsToFade));
-        MusicManager.Stop(Name);
+    }
+
+    ///<summary>
+    ///Cross fade between to themes.
+    ///</summary>
+    public void CrossFade(string Song1, string Song2, float SecondsToFade)
+    {
+        FadeIn(Song2, SecondsToFade);
+        FadeOut(Song1, SecondsToFade);
     }
 
     // Algorithm used to make audio fade in.
@@ -76,5 +84,6 @@ public class MusicPlayer : MonoBehaviour
                 MusicManager.SetVolume(Name, 0f);
         }
         MusicManager.SetVolume(Name, 1f);
+        MusicManager.Stop(Name);
     }
 }

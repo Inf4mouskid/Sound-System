@@ -61,17 +61,6 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Stops a song from playing
-    ///</summary>
-    public void Stop(string Name)
-    {
-        var Theme = Array.Find(Themes, sound => sound.name == Name);
-        if (Theme == null)
-            return;
-        Theme.source.Stop();
-    }
-
-    ///<summary>
     /// Stops all audio from playing
     ///</summary>
     public void Stop()
@@ -81,6 +70,17 @@ public class MusicAudioManager : MonoBehaviour
             if (Theme.source.isPlaying)
                 Theme.source.Stop();
         }
+    }
+
+    ///<summary>
+    /// Stops a song from playing
+    ///</summary>
+    public void Stop(string Name)
+    {
+        var Theme = Array.Find(Themes, sound => sound.name == Name);
+        if (Theme == null)
+            return;
+        Theme.source.Stop();
     }
 
     ///<summary>
@@ -101,9 +101,8 @@ public class MusicAudioManager : MonoBehaviour
     public void VolumeUp(string Name, float Volume)
     {
         var Theme = Array.Find(Themes, sound => sound.name == Name);
-        if (Theme == null)
-            return;
-        Theme.volume += Volume;
+        if (Theme != null)
+            Theme.volume += Volume;
     }
 
     ///<summary>
@@ -112,9 +111,8 @@ public class MusicAudioManager : MonoBehaviour
     public void VolumeDown(string Name, float Volume)
     {
         var Theme = Array.Find(Themes, sound => sound.name == Name);
-        if (Theme == null)
-            return;
-        Theme.volume -= Volume;
+        if (Theme != null)
+            Theme.volume -= Volume;
     }
 
     ///<summary>
