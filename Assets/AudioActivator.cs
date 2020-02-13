@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioActivator : MonoBehaviour
 {
+    public float FadeTime = 5f;
     MusicAudioManager Music;
     AudioTransitions Player;
 
@@ -19,25 +20,21 @@ public class AudioActivator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Player.FadeIn("Tense Theme", 5f);
+            Player.FadeIn("Tense Theme", FadeTime);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Player.FadeOut("Tense Theme", 5f);
+            Player.CrossFade("Action Theme", FadeTime);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Player.FadeIn("Action Theme", 5f);
+            Player.CrossFade("Love Theme", FadeTime);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            Player.FadeOut("Action Theme", 5f);
+            Player.CrossFade("Horror Theme", FadeTime);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Player.CrossFade("Action Theme", 3f);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             Music.Stop();
         }
