@@ -96,6 +96,20 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
+    /// Returns the name of the song currently playing.
+    ///</summary>
+    public string CurrentSong()
+    {
+        string Name = null;
+        foreach (var Theme in Themes)
+        {
+            if (Theme.source.isPlaying)
+                Name = Theme.name;
+        }
+        return Name;
+    }
+
+    ///<summary>
     /// Allows a specific peice of audio to go up in volume.
     ///</summary>
     public void VolumeUp(string Name, float Volume)

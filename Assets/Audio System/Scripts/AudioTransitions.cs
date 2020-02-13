@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Audio;
 using TMPro;
 
-public class MusicPlayer : MonoBehaviour
+public class AudioTransitions : MonoBehaviour
 {
     private MusicAudioManager MusicManager;
-    public static MusicPlayer Instance;
+    public static AudioTransitions Instance;
 
     void Awake()
     {
@@ -52,12 +52,13 @@ public class MusicPlayer : MonoBehaviour
     }
 
     ///<summary>
-    ///Cross fade between to themes.
+    ///Cross fade between two themes.
     ///</summary>
-    public void CrossFade(string Song1, string Song2, float SecondsToFade)
+    public void CrossFade(string Song, float SecondsToFade)
     {
-        FadeIn(Song2, SecondsToFade);
-        FadeOut(Song1, SecondsToFade);
+        var SongPlaying = MusicManager.CurrentSong();
+        FadeIn(Song, SecondsToFade);
+        FadeOut(SongPlaying, SecondsToFade);
     }
 
     // Algorithm used to make audio fade in.

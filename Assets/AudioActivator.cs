@@ -5,13 +5,13 @@ using UnityEngine;
 public class AudioActivator : MonoBehaviour
 {
     MusicAudioManager Music;
-    MusicPlayer Player;
+    AudioTransitions Player;
 
     // Start is called before the first frame update
     void Start()
     {
         Music = FindObjectOfType<MusicAudioManager>();
-        Player = FindObjectOfType<MusicPlayer>();
+        Player = FindObjectOfType<AudioTransitions>();
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class AudioActivator : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            Player.CrossFade("Tense Theme", "Action Theme", 3f);
+            Player.CrossFade("Action Theme", 3f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
