@@ -36,7 +36,6 @@ public class MenuAudioManager : MonoBehaviour
         {
             Audio.source.volume = Audio.volume;
             Audio.source.mute = Audio.mute;
-            Audio.source.loop = Audio.loop;
             Audio.source.pitch = Audio.pitch;
         }
     }

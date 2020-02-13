@@ -25,6 +25,7 @@ public class MusicAudioManager : MonoBehaviour
             Theme.source = gameObject.AddComponent<AudioSource>();
             Theme.source.clip = Theme.clip;
             Theme.source.outputAudioMixerGroup = MusicGroup;
+            Theme.source.loop = Theme.loop;
         }
     }
 
@@ -36,8 +37,6 @@ public class MusicAudioManager : MonoBehaviour
         {
             Theme.source.volume = Theme.volume;
             Theme.source.mute = Theme.mute;
-            Theme.source.loop = Theme.loop;
-            Theme.source.pitch = Theme.pitch;
         }
     }
 
@@ -73,7 +72,7 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Stops a song from playing
+    /// Stops a specific song from playing
     ///</summary>
     public void Stop(string Name)
     {
@@ -84,7 +83,7 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Returns the specified songs volume
+    /// Returns the specified songs volume (Read only)
     ///</summary>
     public float GetSongVolume(string Name)
     {
@@ -96,7 +95,7 @@ public class MusicAudioManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Returns the name of the song currently playing.
+    /// Returns the name of the song currently playing. (Read only)
     ///</summary>
     public string CurrentSong()
     {

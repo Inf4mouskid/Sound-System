@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using TMPro;
 
 public class AudioTransitions : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class AudioTransitions : MonoBehaviour
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
-    public void CutTransition(string Name)
+    public void Cut(string Name)
     {
         MusicManager.Stop();
         MusicManager.Play(Name); // Next song to play.
