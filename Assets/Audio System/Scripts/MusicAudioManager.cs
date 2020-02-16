@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class MusicAudioManager : MonoBehaviour
 {
-    [SerializeField] AudioMixerGroup MusicGroup = null;
+    [SerializeField] AudioMixerGroup Group = null;
     public Sound[] Themes;
 
     public static MusicAudioManager Instance;
@@ -24,7 +24,7 @@ public class MusicAudioManager : MonoBehaviour
         {
             Theme.source = gameObject.AddComponent<AudioSource>();
             Theme.source.clip = Theme.clip;
-            Theme.source.outputAudioMixerGroup = MusicGroup;
+            Theme.source.outputAudioMixerGroup = Group;
             Theme.source.loop = Theme.loop;
         }
     }

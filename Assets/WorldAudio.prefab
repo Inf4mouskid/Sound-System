@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1424074517065434073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5296236605432075051}
+  - component: {fileID: 4672744870480867002}
+  m_Layer: 0
+  m_Name: WorldAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5296236605432075051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424074517065434073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4672744870480867002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424074517065434073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1780a5c196da9c04cb97a516bf62ee1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Group: {fileID: -9042952326879170414, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
+  Appliances:
+  - {fileID: 7158820497115040339, guid: 4f4f15ad8065fdf4d9e7340b6d1592ef, type: 3}
+  - {fileID: 4688797144054452435, guid: d506ffce95421e042975d37200c5ab3b, type: 3}
+  - {fileID: 5469381309710567755, guid: 43c6bec47a6c1a946bdc165c76e5264f, type: 3}
+  SoundFX:
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    mute: 0
+    loop: 0
+    SpacialBlend: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    mute: 0
+    loop: 0
+    SpacialBlend: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    mute: 0
+    loop: 0
+    SpacialBlend: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    mute: 0
+    loop: 0
+    SpacialBlend: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    mute: 0
+    loop: 0
+    SpacialBlend: 0
+    source: {fileID: 0}

@@ -5,13 +5,17 @@ using UnityEngine.Audio;
 
 public class WorldAudioManager : MonoBehaviour
 {
-    public AudioMixerGroup World;
-    public GameObject[] Appliances;
+    public AudioMixerGroup Group;
+    public List<AudioSource> Sources;
+    AudioSource Source;
+    string AudioTag = "Audio";
+    bool IsMute = false;
 
     public static WorldAudioManager Instance;
 
     void Awake()
     {
+
         // Keep the game object Active between scenes
         if (Instance != null) Destroy(gameObject);
         else
@@ -21,18 +25,10 @@ public class WorldAudioManager : MonoBehaviour
         }
 
         // Sets the values for each audio sources
-        foreach (var item in Appliances)
-        {
-            if (item.GetComponent<AudioSource>() != null)
-            {
-                var Source = item.GetComponent<AudioSource>();
-                Source.outputAudioMixerGroup = World;
-            }
-            else
-            {
-                var childSource = item.GetComponentInChildren<AudioSource>();
-                childSource.outputAudioMixerGroup = World;
-            }
-        }
+    }
+
+    void Update()
+    {
+
     }
 }

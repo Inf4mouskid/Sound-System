@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5898542851673924413}
   m_Layer: 0
   m_Name: MenuAudio
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,8 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fa25852b4b9d14a86a4be04cf0cc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuGroup: {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c,
-    type: 2}
+  Group: {fileID: -1164114468367532673, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
   MenuSounds:
   - name: Positive Button
     clip: {fileID: 8300000, guid: 9c5f7a1559aec5945ad56dc97c0a8f34, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5331903618572517967}
   m_Layer: 0
   m_Name: MusicAudio
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3643936035304709418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 583.8109, y: 457.17624, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,34 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7de4b46a7f89b408ca12264aa53750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicGroup: {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c,
-    type: 2}
-  Themes:
-  - name: Tense Theme
-    clip: {fileID: 8300000, guid: 71489f842bd838c429d05f9dfa4afc28, type: 3}
-    volume: 1
-    pitch: 1
-    mute: 0
-    loop: 1
-    source: {fileID: 0}
-  - name: Action Theme
-    clip: {fileID: 8300000, guid: 4d68cc416dc02134781c1dae13ad077a, type: 3}
-    volume: 1
-    pitch: 1
-    mute: 0
-    loop: 1
-    source: {fileID: 0}
-  - name: Love Theme
-    clip: {fileID: 8300000, guid: 541296a059700a041a55e432757937ac, type: 3}
-    volume: 1
-    pitch: 1
-    mute: 0
-    loop: 1
-    source: {fileID: 0}
-  - name: Horror Theme
-    clip: {fileID: 8300000, guid: 175ece541719a324aa1c7f80d3297cbc, type: 3}
-    volume: 1
-    pitch: 1
-    mute: 0
-    loop: 1
-    source: {fileID: 0}
+  Group: {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
+  Themes: []

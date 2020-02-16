@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class MenuAudioManager : MonoBehaviour
 {
-    public AudioMixerGroup MenuGroup;
+    public AudioMixerGroup Group;
     public Sound[] MenuSounds;
 
     public static MenuAudioManager Instance;
@@ -24,7 +24,7 @@ public class MenuAudioManager : MonoBehaviour
         {
             Audio.source = gameObject.AddComponent<AudioSource>();
             Audio.source.clip = Audio.clip;
-            Audio.source.outputAudioMixerGroup = MenuGroup;
+            Audio.source.outputAudioMixerGroup = Group;
         }
     }
 
