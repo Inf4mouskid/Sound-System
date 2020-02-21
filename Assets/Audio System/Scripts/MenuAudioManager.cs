@@ -35,7 +35,6 @@ public class MenuAudioManager : MonoBehaviour
         foreach (var Audio in MenuSounds)
         {
             Audio.source.volume = Audio.volume;
-            Audio.source.mute = Audio.mute;
             Audio.source.pitch = Audio.pitch;
         }
     }
@@ -49,14 +48,6 @@ public class MenuAudioManager : MonoBehaviour
         if (Audio == null)
             return;
         Audio.source.Play();
-    }
-
-    /// <summary>
-    /// Mutes all the audio in the game
-    /// </summary>
-    public void Mute()
-    {
-        foreach (var Audio in MenuSounds) Audio.mute = !Audio.mute;
     }
 
     ///<summary>

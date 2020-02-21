@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4823677104236735945}
   - component: {fileID: 5331903618572517967}
+  - component: {fileID: 3778277181535033613}
   m_Layer: 0
   m_Name: MusicAudio
   m_TagString: Audio
@@ -45,3 +46,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Group: {fileID: -3931689994027720300, guid: a51f53c424919a64cba2fad9e57bec1c, type: 2}
   Themes: []
+--- !u!114 &3778277181535033613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3643936035304709418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb54a8c6d8b88c84d870658cc15be703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

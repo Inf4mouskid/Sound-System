@@ -2,12 +2,12 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MusicAudioManager : MonoBehaviour
+public class MusicManager : MonoBehaviour
 {
     [SerializeField] AudioMixerGroup Group = null;
     public Sound[] Themes;
 
-    public static MusicAudioManager Instance;
+    public static MusicManager Instance;
 
     // Use this for initialization
     void Awake()
@@ -36,7 +36,7 @@ public class MusicAudioManager : MonoBehaviour
         foreach (var Theme in Themes)
         {
             Theme.source.volume = Theme.volume;
-            Theme.source.mute = Theme.mute;
+            Theme.source.pitch = Theme.pitch;
         }
     }
 
@@ -49,14 +49,6 @@ public class MusicAudioManager : MonoBehaviour
         if (Theme == null)
             return;
         Theme.source.Play();
-    }
-
-    /// <summary>
-    /// Mutes all the audio in the game
-    /// </summary>
-    public void Mute()
-    {
-        foreach (var Theme in Themes) Theme.mute = !Theme.mute;
     }
 
     ///<summary>

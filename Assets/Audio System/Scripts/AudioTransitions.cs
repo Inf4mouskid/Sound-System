@@ -5,23 +5,11 @@ using UnityEngine.Audio;
 
 public class AudioTransitions : MonoBehaviour
 {
-    private MusicAudioManager MusicManager;
-    public static AudioTransitions Instance;
-
-    void Awake()
-    {
-        // Keep the game object Active between scenes
-        if (Instance != null) Destroy(gameObject);
-        else
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
+    MusicManager Music;
 
     void Start()
     {
-        MusicManager = FindObjectOfType<MusicAudioManager>();
+        Music = GetComponent<MusicManager>();
     }
 
     ///<summary>
@@ -29,8 +17,8 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void Cut(string Name)
     {
-        MusicManager.Stop();
-        MusicManager.Play(Name); // Next song to play.
+        Music.Stop();
+        Music.Play(Name); // Next song to play.
     }
 
     ///<summary>
@@ -38,7 +26,7 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void FadeIn(string Name, float SecondsToFade)
     {
-        MusicManager.Play(Name);
+        Music.Play(Name);
         StartCoroutine(FadeInAlgorithm(Name, SecondsToFade));
     }
 
@@ -55,7 +43,7 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void CrossFade(string Song, float SecondsToFade)
     {
-        var SongPlaying = MusicManager.CurrentSong();
+        var SongPlaying = Music.CurrentSong();
         FadeIn(Song, SecondsToFade);
         FadeOut(SongPlaying, SecondsToFade);
     }
@@ -63,27 +51,27 @@ public class AudioTransitions : MonoBehaviour
     // Algorithm used to make audio fade in.
     IEnumerator FadeInAlgorithm(string Name, float SecondsToFade)
     {
-        MusicManager.SetVolume(Name, 0f);
-        while (MusicManager.GetSongVolume(Name) < 1f)
+        Music.SetVolume(Name, 0f);
+        while (Music.GetSongVolume(Name) < 1f)
         {
-            MusicManager.VolumeUp(Name, Time.deltaTime / SecondsToFade);
+            Music.VolumeUp(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (MusicManager.GetSongVolume(Name) < 1f && MusicManager.GetSongVolume(Name) > 0.99f)
-                MusicManager.SetVolume(Name, 1f);
+            if (Music.GetSongVolume(Name) < 1f && Music.GetSongVolume(Name) > 0.99f)
+                Music.SetVolume(Name, 1f);
         }
     }
 
     // Algorithm used to make audio fade out.
     IEnumerator FadeOutAlgorithm(string Name, float SecondsToFade)
     {
-        while (MusicManager.GetSongVolume(Name) > 0.01f)
+        while (Music.GetSongVolume(Name) > 0.01f)
         {
-            MusicManager.VolumeDown(Name, Time.deltaTime / SecondsToFade);
+            Music.VolumeDown(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (MusicManager.GetSongVolume(Name) > 0f && MusicManager.GetSongVolume(Name) < 0.01f)
-                MusicManager.SetVolume(Name, 0f);
+            if (Music.GetSongVolume(Name) > 0f && Music.GetSongVolume(Name) < 0.01f)
+                Music.SetVolume(Name, 0f);
         }
-        MusicManager.SetVolume(Name, 1f);
-        MusicManager.Stop(Name);
+        Music.SetVolume(Name, 1f);
+        Music.Stop(Name);
     }
 }
