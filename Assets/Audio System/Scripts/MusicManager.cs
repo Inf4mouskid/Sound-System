@@ -4,6 +4,8 @@ using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour
 {
+    [SerializeField, Range(0f, 1f)] private float InitialVolume = 1f;
+    [SerializeField, Range(0f, 3f)] private float InitialPitch = 1f;
     [SerializeField] AudioMixerGroup Group = null;
     public Sound[] Themes;
 
@@ -26,6 +28,8 @@ public class MusicManager : MonoBehaviour
             Theme.source.clip = Theme.clip;
             Theme.source.outputAudioMixerGroup = Group;
             Theme.source.loop = Theme.loop;
+            Theme.volume = InitialVolume;
+            Theme.pitch = InitialPitch;
         }
     }
 

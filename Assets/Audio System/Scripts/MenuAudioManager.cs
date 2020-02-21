@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 
 public class MenuAudioManager : MonoBehaviour
 {
-    public AudioMixerGroup Group;
+    [SerializeField] AudioMixerGroup Group = null;
     public Sound[] MenuSounds;
 
     public static MenuAudioManager Instance;
