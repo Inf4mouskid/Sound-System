@@ -25,15 +25,15 @@ public class SoundPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            AudioEffects.Cut("Tense Theme");
+            AudioEffects.CrossFade("Sexy Theme", 1.0f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            AudioEffects.Cut("Tense Theme");
+            AudioEffects.CrossFade("Horror Theme 1", 1.0f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            AudioEffects.Cut("Tense Theme");
+            AudioEffects.CrossFade("Horror Theme 2", 2.0f);
         }
     }
 }

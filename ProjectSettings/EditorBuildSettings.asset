@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main.unity
     guid: 1801f7a44ab09814fb131ee2a5d0aa95
+  - enabled: 1
+    path: Assets/Scenes/3D audio.unity
+    guid: 1cbb85760da349a4abdd83371983f38f
   m_configObjects: {}
