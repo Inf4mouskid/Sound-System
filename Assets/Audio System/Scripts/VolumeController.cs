@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 
 public class VolumeController : MonoBehaviour
 {
-    const int LOG_FORMAT = 65;
+    //const int LOG_FORMAT = 20;
     [SerializeField] AudioMixer Mixer;
 
     public static VolumeController Instance;

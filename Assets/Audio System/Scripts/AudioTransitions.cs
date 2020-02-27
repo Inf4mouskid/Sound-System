@@ -56,7 +56,7 @@ public class AudioTransitions : MonoBehaviour
         {
             Music.VolumeUp(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (Music.GetSongVolume(Name) < 1f && Music.GetSongVolume(Name) > 0.99f)
+            if (Music.GetSongVolume(Name) < 1f && Music.GetSongVolume(Name) > 0.95f)
                 Music.SetVolume(Name, 1f);
         }
     }
@@ -64,11 +64,11 @@ public class AudioTransitions : MonoBehaviour
     // Algorithm used to make audio fade out.
     IEnumerator FadeOutAlgorithm(string Name, float SecondsToFade)
     {
-        while (Music.GetSongVolume(Name) > 0.01f)
+        while (Music.GetSongVolume(Name) > 0.05f)
         {
             Music.VolumeDown(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (Music.GetSongVolume(Name) > 0f && Music.GetSongVolume(Name) < 0.01f)
+            if (Music.GetSongVolume(Name) > 0f && Music.GetSongVolume(Name) < 0.05f)
                 Music.SetVolume(Name, 0f);
         }
         Music.SetVolume(Name, 1f);

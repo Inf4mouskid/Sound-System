@@ -25,11 +25,11 @@ public class SoundPlayer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            AudioEffects.CrossFade("Sexy Theme", 1.0f);
+            AudioEffects.CrossFade("Sexy Theme", 5.0f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            AudioEffects.CrossFade("Horror Theme 1", 1.0f);
+            AudioEffects.CrossFade("Horror Theme 1", 5.0f);
         }
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
