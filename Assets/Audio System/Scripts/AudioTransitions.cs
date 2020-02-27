@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class AudioTransitions : MonoBehaviour
 {
     MusicManager Music;
+    private float SecondsToFade = 0f;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class AudioTransitions : MonoBehaviour
     ///<summary>
     /// Fades into the current song.
     ///</summary>
-    public void FadeIn(string Name, float SecondsToFade)
+    public void FadeIn(string Name)
     {
         Music.Play(Name);
         StartCoroutine(FadeInAlgorithm(Name, SecondsToFade));
@@ -33,7 +34,7 @@ public class AudioTransitions : MonoBehaviour
     ///<summary>
     /// Fades out of the current song.
     ///</summary>
-    public void FadeOut(string Name, float SecondsToFade)
+    public void FadeOut(string Name)
     {
         StartCoroutine(FadeOutAlgorithm(Name, SecondsToFade));
     }
@@ -41,11 +42,16 @@ public class AudioTransitions : MonoBehaviour
     ///<summary>
     ///Cross fade between two themes.
     ///</summary>
-    public void CrossFade(string Song, float SecondsToFade)
+    public void CrossFade(string Song)
     {
         var SongPlaying = Music.CurrentSong();
-        FadeIn(Song, SecondsToFade);
-        FadeOut(SongPlaying, SecondsToFade);
+        FadeIn(Song);
+        FadeOut(SongPlaying);
+    }
+
+    public void SetFadeTime(float Time)
+    {
+        SecondsToFade = Time;
     }
 
     // Algorithm used to make audio fade in.
