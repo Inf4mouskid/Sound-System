@@ -26,6 +26,7 @@ public class MenuAudioManager : MonoBehaviour
             Audio.source.clip = Audio.clip;
             Audio.source.outputAudioMixerGroup = Group;
         }
+        Stop();
     }
 
     // Update is called once per frame

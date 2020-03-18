@@ -1,16 +1,15 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Audio;
 
 [RequireComponent(typeof(AudioTransitions))]
-public class MusicManager : MonoBehaviour
+public class ObjectMusicManager : MonoBehaviour
 {
+    public SoundObject SoundObj;
     [SerializeField, Range(0f, 1f)] private float InitialVolume = 1f;
     [SerializeField, Range(0.1f, 3f)] private float InitialPitch = 1f;
-    [SerializeField] private AudioMixerGroup Group = null;
-    public Sound[] Themes;
+    private Sound[] Themes;
 
-    public static MusicManager Instance;
+    public static ObjectMusicManager Instance;
 
     // Use this for initialization
     void Awake()
@@ -27,7 +26,7 @@ public class MusicManager : MonoBehaviour
         {
             Theme.source = gameObject.AddComponent<AudioSource>();
             Theme.source.clip = Theme.clip;
-            Theme.source.outputAudioMixerGroup = Group;
+            Theme.source.outputAudioMixerGroup = SoundObj.Group;
             Theme.source.loop = Theme.loop;
             Theme.volume = InitialVolume;
             Theme.pitch = InitialPitch;

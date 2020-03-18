@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5898542851673924413}
   m_Layer: 0
   m_Name: MenuAudio
-  m_TagString: Audio
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,15 +49,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9c5f7a1559aec5945ad56dc97c0a8f34, type: 3}
     volume: 1
     pitch: 1
-    mute: 0
     loop: 0
-    SpacialBlend: 1
     source: {fileID: 0}
   - name: Negative Button
     clip: {fileID: 8300000, guid: d3c5980fc40c01c4ca3689d9865fd9a1, type: 3}
     volume: 1
     pitch: 1
-    mute: 0
     loop: 0
-    SpacialBlend: 1
     source: {fileID: 0}
