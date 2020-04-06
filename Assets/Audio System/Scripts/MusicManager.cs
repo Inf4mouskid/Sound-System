@@ -79,6 +79,9 @@ public class MusicManager : MonoBehaviour
         Theme.source.Stop();
     }
 
+    ///<summary>
+    /// Gets the current time position of the current song
+    ///</summary>
     public float CurrentTime()
     {
         float time = 0f;
@@ -90,6 +93,9 @@ public class MusicManager : MonoBehaviour
         return time;
     }
 
+    ///<summary>
+    /// Gets the length of the current song
+    ///</summary>
     public float CurrentSongLength()
     {
         float time = 0f;
