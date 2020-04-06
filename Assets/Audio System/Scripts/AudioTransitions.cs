@@ -13,6 +13,7 @@ public class AudioTransitions : MonoBehaviour
         Music = GetComponent<MusicManager>();
     }
 
+    #region Effects    
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
@@ -47,6 +48,33 @@ public class AudioTransitions : MonoBehaviour
         var SongPlaying = Music.CurrentSong();
         FadeIn(Song);
         FadeOut(SongPlaying);
+    }
+    #endregion
+
+    ///<summary>
+    /// Randomly selects a song to play with fading.
+    ///</summary>
+    public void ShufflePlay()
+    {
+        var RandomIndexSelection = UnityEngine.Random.Range(0, Music.Themes.Length);
+        var SongName = Music.GetSongIndex(RandomIndexSelection);
+        CrossFade(SongName);
+    }
+
+    ///<summary>
+    /// Randomly selects a song to play with fading that isnt a specific theme
+    ///</summary>
+    public void ShufflePlay(string Theme)
+    {
+        var RandomIndexSelection = UnityEngine.Random.Range(0, Music.Themes.Length);
+        var RandomTheme = Music.Themes[RandomIndexSelection].name;
+        if (RandomTheme == Theme)
+        {
+            Debug.Log(Theme + " (Should not be played!)");
+            ShufflePlay(Theme);
+        }
+        var SongName = Music.GetSongIndex(RandomIndexSelection);
+        CrossFade(SongName);
     }
 
     public void SetFadeTime(float Time)

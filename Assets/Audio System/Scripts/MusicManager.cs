@@ -79,6 +79,51 @@ public class MusicManager : MonoBehaviour
         Theme.source.Stop();
     }
 
+    public float CurrentTime()
+    {
+        float time = 0f;
+        foreach (var Theme in Themes)
+        {
+            if (Theme.source.isPlaying)
+                time = Theme.source.time;
+        }
+        return time;
+    }
+
+    public float CurrentSongLength()
+    {
+        float time = 0f;
+        foreach (var Theme in Themes)
+        {
+            if (Theme.source.isPlaying)
+                time = Theme.source.clip.length;
+        }
+        return time;
+    }
+
+    ///<summary>
+    /// Randomly selects a song to play
+    ///</summary>
+    public void ShufflePlay()
+    {
+        Stop();
+        var RandomIndexSelection = UnityEngine.Random.Range(0, Themes.Length);
+        Themes[RandomIndexSelection].source.Play();
+    }
+
+    ///<summary>
+    /// Randomly selects a song to play that isn't
+    ///</summary>
+    public void ShufflePlay(string MainTheme)
+    {
+        Stop();
+        var RandomIndexSelection = UnityEngine.Random.Range(0, Themes.Length);
+        bool MainThemeCheck = Themes[RandomIndexSelection].name.Equals(MainTheme);
+        if (MainThemeCheck)
+            ShufflePlay(MainTheme);
+        Themes[RandomIndexSelection].source.Play();
+    }
+
     ///<summary>
     /// Returns the specified songs volume (Read only)
     ///</summary>
@@ -103,6 +148,16 @@ public class MusicManager : MonoBehaviour
                 Name = Theme.name;
         }
         return Name;
+    }
+
+    ///<summary>
+    /// Gets a song by it's index
+    ///</summary>
+    public string GetSongIndex(int Index)
+    {
+        string SongName = null;
+        SongName = Themes[Index].name;
+        return SongName;
     }
 
     ///<summary>
