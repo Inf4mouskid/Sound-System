@@ -5,7 +5,9 @@ using UnityEngine.Audio;
 
 public class AudioTransitions : MonoBehaviour
 {
-    MusicManager Music;
+    const float MAX_VOL = 1f;
+    const float MIN_VOL = 0f;
+    private MusicManager Music;
     private float SecondsToFade = 0f;
 
     void Start()
@@ -13,7 +15,7 @@ public class AudioTransitions : MonoBehaviour
         Music = GetComponent<MusicManager>();
     }
 
-    #region Effects    
+    #region Effects
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
@@ -56,8 +58,13 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void ShufflePlay()
     {
-        var RandomIndexSelection = UnityEngine.Random.Range(0, Music.Themes.Length);
-        var SongName = Music.GetSongIndex(RandomIndexSelection);
+        int RandomIndexSelection = RandomIndex(); // picks a song by it's index
+        string SongName = Music.GetSongByIndex(RandomIndexSelection); // Get's the name of a song
+        while (SongName == Music.CurrentSong())
+        {
+            RandomIndexSelection = RandomIndex();
+            SongName = Music.GetSongByIndex(RandomIndexSelection);
+        }
         CrossFade(SongName);
     }
 
@@ -66,46 +73,58 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void ShufflePlay(string Theme)
     {
-        var RandomIndexSelection = UnityEngine.Random.Range(0, Music.Themes.Length);
-        var RandomTheme = Music.Themes[RandomIndexSelection].name;
-        if (RandomTheme == Theme)
+        int RandomIndexSelection = RandomIndex(); // picks a song by it's index
+        string SongName = Music.GetSongByIndex(RandomIndexSelection); // Get's the name of a song
+        while (SongName == Theme || SongName == Music.CurrentSong())
         {
-            Debug.Log(Theme + " (Should not be played!)");
-            ShufflePlay(Theme);
+            RandomIndexSelection = RandomIndex();
+            SongName = Music.GetSongByIndex(RandomIndexSelection);
         }
-        var SongName = Music.GetSongIndex(RandomIndexSelection);
         CrossFade(SongName);
     }
 
+    ///<summary>
+    /// Set the time it takes for the audio to fade in or out.
+    ///</summary>
     public void SetFadeTime(float Time)
     {
         SecondsToFade = Time;
     }
 
+    private int RandomIndex()
+    {
+        return UnityEngine.Random.Range(0, Music.Themes.Length);
+    }
+
     // Algorithm used to make audio fade in.
     IEnumerator FadeInAlgorithm(string Name, float SecondsToFade)
     {
-        Music.SetVolume(Name, 0f);
-        while (Music.GetSongVolume(Name) < 1f)
+        Music.SetVolume(Name, MIN_VOL);
+        while (Music.GetSongVolume(Name) < MAX_VOL)
         {
-            Music.VolumeUp(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (Music.GetSongVolume(Name) < 1f && Music.GetSongVolume(Name) > 0.95f)
-                Music.SetVolume(Name, 1f);
+            Music.VolumeUp(Name, Time.deltaTime / SecondsToFade);
+            if (Music.GetSongVolume(Name) < MAX_VOL && Music.GetSongVolume(Name) > 0.95f)
+                Music.SetVolume(Name, MAX_VOL);
         }
     }
 
     // Algorithm used to make audio fade out.
     IEnumerator FadeOutAlgorithm(string Name, float SecondsToFade)
     {
+        // Safety check to make sure audio
+        // smoothly transitions from Max volume to 
+        if (Music.GetSongVolume(Name) < MAX_VOL) Music.SetVolume(Name, MAX_VOL);
+
+        // 
         while (Music.GetSongVolume(Name) > 0.05f)
         {
-            Music.VolumeDown(Name, Time.deltaTime / SecondsToFade);
             yield return null;
-            if (Music.GetSongVolume(Name) > 0f && Music.GetSongVolume(Name) < 0.05f)
-                Music.SetVolume(Name, 0f);
+            Music.VolumeDown(Name, Time.deltaTime / SecondsToFade);
+            if (Music.GetSongVolume(Name) > MIN_VOL && Music.GetSongVolume(Name) < 0.05f)
+                Music.SetVolume(Name, MIN_VOL);
         }
-        Music.SetVolume(Name, 1f);
+        Music.SetVolume(Name, MAX_VOL);
         Music.Stop(Name);
     }
 }

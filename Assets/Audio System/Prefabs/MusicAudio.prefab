@@ -66,3 +66,21 @@ MonoBehaviour:
     pitch: 0.1
     loop: 1
     source: {fileID: 0}
+  - name: Human Theme
+    clip: {fileID: 8300000, guid: 7ed96ce41656b944693f75f34867577f, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - name: Rockmen Theme
+    clip: {fileID: 8300000, guid: 73d5339f80aa38d4abb0ae242069fdb5, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 1
+    source: {fileID: 0}
+  - name: Lizard Theme
+    clip: {fileID: 8300000, guid: 03aa50d58f203af48a098c5233dc7b79, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 1
+    source: {fileID: 0}

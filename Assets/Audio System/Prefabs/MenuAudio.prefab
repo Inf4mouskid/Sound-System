@@ -57,3 +57,9 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Pause Menu
+    clip: {fileID: 8300000, guid: 3ec7643aba393714ab107b5804635fa0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

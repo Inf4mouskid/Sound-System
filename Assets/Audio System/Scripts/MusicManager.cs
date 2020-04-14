@@ -80,34 +80,6 @@ public class MusicManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Gets the current time position of the current song
-    ///</summary>
-    public float CurrentTime()
-    {
-        float time = 0f;
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                time = Theme.source.time;
-        }
-        return time;
-    }
-
-    ///<summary>
-    /// Gets the length of the current song
-    ///</summary>
-    public float CurrentSongLength()
-    {
-        float time = 0f;
-        foreach (var Theme in Themes)
-        {
-            if (Theme.source.isPlaying)
-                time = Theme.source.clip.length;
-        }
-        return time;
-    }
-
-    ///<summary>
     /// Randomly selects a song to play
     ///</summary>
     public void ShufflePlay()
@@ -157,9 +129,9 @@ public class MusicManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Gets a song by it's index
+    /// Gets a song by it's index (Return string)
     ///</summary>
-    public string GetSongIndex(int Index)
+    public string GetSongByIndex(int Index)
     {
         string SongName = null;
         SongName = Themes[Index].name;
