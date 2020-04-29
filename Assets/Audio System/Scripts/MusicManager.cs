@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-[RequireComponent(typeof(AudioTransitions))]
 public class MusicManager : MonoBehaviour
 {
     [SerializeField, Range(0f, 1f)] private float InitialVolume = 1f;
@@ -29,6 +28,7 @@ public class MusicManager : MonoBehaviour
             Theme.source.clip = Theme.clip;
             Theme.source.outputAudioMixerGroup = Group;
             Theme.source.loop = Theme.loop;
+            Theme.source.playOnAwake = false;
             Theme.volume = InitialVolume;
             Theme.pitch = InitialPitch;
         }
@@ -90,7 +90,7 @@ public class MusicManager : MonoBehaviour
     }
 
     ///<summary>
-    /// Randomly selects a song to play that isn't
+    /// Randomly selects a song to play that isn't a specified theme
     ///</summary>
     public void ShufflePlay(string MainTheme)
     {

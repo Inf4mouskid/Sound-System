@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+[RequireComponent(typeof(MusicManager))]
 public class AudioTransitions : MonoBehaviour
 {
     const float MAX_VOL = 1f;
     const float MIN_VOL = 0f;
-    private MusicManager Music;
-    private float SecondsToFade = 0f;
-
-    void Start()
-    {
-        Music = GetComponent<MusicManager>();
-    }
+    [SerializeField] private MusicManager Music = null;
+    public float SecondsToFade { get; set; }
 
     #region Effects
     ///<summary>
@@ -31,7 +27,7 @@ public class AudioTransitions : MonoBehaviour
     public void FadeIn(string Name)
     {
         Music.Play(Name);
-        StartCoroutine(FadeInAlgorithm(Name, SecondsToFade));
+        StartCoroutine(FadeInAlgorithm(Name));
     }
 
     ///<summary>
@@ -39,7 +35,7 @@ public class AudioTransitions : MonoBehaviour
     ///</summary>
     public void FadeOut(string Name)
     {
-        StartCoroutine(FadeOutAlgorithm(Name, SecondsToFade));
+        StartCoroutine(FadeOutAlgorithm(Name));
     }
 
     ///<summary>
@@ -84,20 +80,18 @@ public class AudioTransitions : MonoBehaviour
     }
 
     ///<summary>
-    /// Set the time it takes for the audio to fade in or out.
+    /// Returns the song in the randomly selected index
     ///</summary>
-    public void SetFadeTime(float Time)
-    {
-        SecondsToFade = Time;
-    }
-
     private int RandomIndex()
     {
         return UnityEngine.Random.Range(0, Music.Themes.Length);
     }
 
-    // Algorithm used to make audio fade in.
-    IEnumerator FadeInAlgorithm(string Name, float SecondsToFade)
+    #region Algorithms
+    ///<summary>
+    /// Algorithm that fades
+    ///</summary>
+    IEnumerator FadeInAlgorithm(string Name)
     {
         Music.SetVolume(Name, MIN_VOL);
         while (Music.GetSongVolume(Name) < MAX_VOL)
@@ -109,14 +103,16 @@ public class AudioTransitions : MonoBehaviour
         }
     }
 
-    // Algorithm used to make audio fade out.
-    IEnumerator FadeOutAlgorithm(string Name, float SecondsToFade)
+    ///<summary>
+    /// Algorithm used to make audio fade out.
+    ///</summary>
+    IEnumerator FadeOutAlgorithm(string Name)
     {
         // Safety check to make sure audio
         // smoothly transitions from Max volume to 
         if (Music.GetSongVolume(Name) < MAX_VOL) Music.SetVolume(Name, MAX_VOL);
 
-        // 
+        // Loops through a songs volume until it has completely until it is close to zero
         while (Music.GetSongVolume(Name) > 0.05f)
         {
             yield return null;
@@ -127,4 +123,5 @@ public class AudioTransitions : MonoBehaviour
         Music.SetVolume(Name, MAX_VOL);
         Music.Stop(Name);
     }
+    #endregion
 }
