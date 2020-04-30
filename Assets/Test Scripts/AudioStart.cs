@@ -3,21 +3,23 @@ using UnityEngine.UI;
 
 public class AudioStart : MonoBehaviour
 {
-    public Button PlayButton = null;
+    [SerializeField] private float FadeTime = 2f;
+    [SerializeField] private string SongName = null;
+    [SerializeField] private Button PlayButton = null;
     private AudioTransitions Effects;
 
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = PlayButton.GetComponent<Button>();
         Effects = FindObjectOfType<AudioTransitions>();
-        btn.onClick.AddListener(TaskOnClick);
+        if (PlayButton != null)
+            PlayButton.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
-        Effects.SecondsToFade = 2f;
-        Effects.CrossFade("Action Theme");
+        Effects.SecondsToFade = FadeTime;
+        Effects.CrossFade(SongName);
     }
 
 }

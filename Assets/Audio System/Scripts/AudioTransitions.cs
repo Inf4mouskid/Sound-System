@@ -6,10 +6,10 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(MusicManager))]
 public class AudioTransitions : MonoBehaviour
 {
-    const float MAX_VOL = 1f;
-    const float MIN_VOL = 0f;
     [SerializeField] private MusicManager Music = null;
     public float SecondsToFade { get; set; }
+    const float MAX_VOL = 1f;
+    const float MIN_VOL = 0f;
 
     #region Effects
     ///<summary>
@@ -49,7 +49,7 @@ public class AudioTransitions : MonoBehaviour
     }
     #endregion
 
-    ///<summary>
+    /*///<summary>
     /// Randomly selects a song to play with fading.
     ///</summary>
     public void ShufflePlay()
@@ -85,7 +85,7 @@ public class AudioTransitions : MonoBehaviour
     private int RandomIndex()
     {
         return UnityEngine.Random.Range(0, Music.Themes.Length);
-    }
+    } */
 
     #region Algorithms
     ///<summary>
