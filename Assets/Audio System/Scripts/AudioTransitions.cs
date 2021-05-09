@@ -11,7 +11,6 @@ public class AudioTransitions : MonoBehaviour
     const float MAX_VOL = 1f;
     const float MIN_VOL = 0f;
 
-    #region Effects
     ///<summary>
     /// Cuts to the next song to play.
     ///</summary>
@@ -47,9 +46,8 @@ public class AudioTransitions : MonoBehaviour
         FadeIn(Song);
         FadeOut(SongPlaying);
     }
-    #endregion
 
-    /*///<summary>
+    ///<summary>
     /// Randomly selects a song to play with fading.
     ///</summary>
     public void ShufflePlay()
@@ -78,14 +76,6 @@ public class AudioTransitions : MonoBehaviour
         }
         CrossFade(SongName);
     }
-
-    ///<summary>
-    /// Returns the song in the randomly selected index
-    ///</summary>
-    private int RandomIndex()
-    {
-        return UnityEngine.Random.Range(0, Music.Themes.Length);
-    } */
 
     #region Algorithms
     ///<summary>
@@ -124,4 +114,12 @@ public class AudioTransitions : MonoBehaviour
         Music.Stop(Name);
     }
     #endregion
+
+    ///<summary>
+    /// Returns the song in the randomly selected index
+    ///</summary>
+    private int RandomIndex()
+    {
+        return UnityEngine.Random.Range(0, Music.Themes.Length);
+    }
 }
