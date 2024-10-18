@@ -11,7 +11,7 @@ public class SongDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Music = FindObjectOfType<MusicManager>();
+        Music = FindFirstObjectByType<MusicManager>();
         TextObject = GetComponent<Text>();
     }
 

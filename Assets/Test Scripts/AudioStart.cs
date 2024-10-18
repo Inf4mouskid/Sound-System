@@ -11,7 +11,7 @@ public class AudioStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Effects = FindObjectOfType<AudioTransitions>();
+        Effects = FindFirstObjectByType<AudioTransitions>();
         if (PlayButton != null)
             PlayButton.onClick.AddListener(TaskOnClick);
     }

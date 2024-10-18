@@ -9,12 +9,12 @@ enum Scenes
 
 public class LevelManager : MonoBehaviour
 {
-    private AudioTransitions Effects;
+    private AudioTransitions Effects = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        Effects = FindObjectOfType<AudioTransitions>();
+        Effects = FindFirstObjectByType<AudioTransitions>();
         Effects.SecondsToFade = 2.0f;
         Effects.CrossFade("Tense Theme");
     }

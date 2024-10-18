@@ -6,7 +6,7 @@ public class WorldAudioManager : MonoBehaviour
 {
     [SerializeField, Range(0f, 1f)] private float InitialVolume = 1f;
     [SerializeField] private AudioMixerGroup Group = null;
-    public Sound3D[] Audio;
+    public Sound3D[] AudioClips;
     public static WorldAudioManager Instance;
 
     void Awake()
@@ -23,12 +23,13 @@ public class WorldAudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        foreach (var AudioClip in AudioClips)
+        { 
+            AudioClip.volume = InitialVolume;
+            AudioClip.source.outputAudioMixerGroup = Group;
+            var ObjectAudio = AudioClip.WorldObject.GetComponent<AudioSource>();
+            if (ObjectAudio != null) AudioClip.WorldObject.AddComponent<AudioSource>();
+            ObjectAudio = AudioClip.source;
+        }
     }
 }
